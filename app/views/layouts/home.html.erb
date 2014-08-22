@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Studygossips</title>
+    <%= stylesheet_link_tag "/assets/css-new/default.css" %>
+    <%= javascript_include_tag "application","/assets/js-new/bootstrap/bootstrap.min.js","/assets/js-new/html5.js","/assets/js-new/navjs/waypoints.min.js","/assets/js-new/navjs/navbar.js", "/assets/js-new/custom.js"%>
+  </head>
+
+
+  <body>
+
+    <header>
+      <div class="header-bg">
+        <div class="nav-bg">
+          <div id="navigation-bar" >
+            <div class="container"> <a  href="#" title="StudyGossip" id="logo">
+                <%= image_tag("/assets/image-new/logo.png", :alt => "StudyGossip", :title => "StudyGossip") %>
+              </a>
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
+              </div>
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navigation">
+                  <li class="active"><a href="#" title="Sign up"><span>Sign up</span></a></li>
+                  <li><a href="#about" title="About us"><span>About us</span></a></li>
+                  <li><a href="#contact" title="Send Query"><span>Send Query</span></a></li>
+                  <li><a href="#contact" title="Contact"><span>Contact</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row bposi">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 contant-share">
+              <h3>Share your Skills</h3>
+              <p class="spacing-contant">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam tellus, sit amet imperdiet ipsum adipiscing et. Ut lacinia eget velit vitae eleifend. Nam mi nibh, sollicitudin eget metus ullamcorper, commodo fermentum justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+              <p> 
+                <%= link_to "Sign in as Student",new_user_session_path(:role => 'student') ,:class => "btn-signin" %>
+                <%= link_to "Sign in as Teacher",new_user_session_path(:role => 'teacher') ,:class => "btn-signin" %>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 main-boxcommunication">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide480"><del>.</del></div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide480"><del>.</del></div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide480"> <a href="#communication-id" title="Communication Platform" class="box-platform scroll"> <span></span> Communication Platform </a> </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide480"><del>.</del></div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <a href="#track-id" title="Track Participation" class="box-platform scroll"> <span class="icon-trackParticipation"></span> Track Participation </a> </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <a href="#collage-id" title="College Management" class="box-platform scroll"> <span class="icon-collegeManagement"></span> College Management </a> </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <a href="#attendence-id" title="Attendence &amp; Scorecard" class="box-platform scroll"> <span class="icon-attendence"></span> Attendence &amp; Scorecard </a> </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <a href="#share-id" title="Share with Parents" class="box-platform scroll"> <span class="icon-share"></span> Share with Parents </a> </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide480"><del>.</del></div>
+            </div>
+          </div>
+          <div class="clearF"></div>
+        </div>
+      </div>	
+    </header>
+    <%= yield %>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Copyright 2014-2015 StudyGossip</div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <ul class="list-footermenu">
+              <li><a href="#" title="Terms">Terms</a></li>
+              <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>	
+    </footer>
+  </body>
+</html>
+

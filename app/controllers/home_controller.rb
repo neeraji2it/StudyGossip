@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-layout :home_layout, only: ["index"]
+  layout :home_layout, only: ["index"]
 
   def index
     if current_user
@@ -66,11 +66,18 @@ layout :home_layout, only: ["index"]
   end
   
   def contact_us
+    params[:captcha_error] = "Captcha is invalid." unless params[:captcha] == "4"
+    params[:name_error] = "Name can't be blank." if params[:name].to_s.blank?
+    params[:email_error] = "Email can't be blank" if params[:email].to_s.blank?
+    params[:message_error] = "Message can't be blank." if params[:message].to_s.blank?
+    
     @name = params[:name]
     @email = params[:email]
     @message = params[:message]
-    UserMailer.contact_us(@name,@email,@message).deliver
-    redirect_to :back
+    if params[:captcha] == "4" and !params[:name].to_s.blank? and !params[:email].to_s.blank? and !params[:message].to_s.blank?
+      UserMailer.contact_us(@name,@email,@message).deliver
+    end
+    render
   end
 
 end

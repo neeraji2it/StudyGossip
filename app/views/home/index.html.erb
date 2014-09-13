@@ -103,26 +103,9 @@
             <li class="icon-linkedin"><a href="#" title="linkedin"></a></li>
           </ul>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 box-input">
-          <h2>Send us a direct message</h2>
-          <%= form_for("contact",:url =>  contact_us_home_index_path, :method => "post" ) do |f| %>
-          <p>
-            <%= text_field_tag :name %>
-          </p>
-          <p><span>Your Name</span></p>
-          <p>
-            <%= text_field_tag :email %>
-          </p>
-          <p><span>Your Email</span></p>
-          <p>
-            <%= text_field_tag :message %>
-          </p>
-          <p><span>Message</span></p>
-          <p class="btn-spacing">
-            <%= submit_tag "Send Message", :class => "btn-sendMessage" %>
-          </p>
-          
-          <% end %>
+        
+        <div id="contact_us">
+          <%= render :partial => "contact" %>
         </div>
       </div>
     </div>

@@ -2,32 +2,31 @@
   <h2>Send us a direct message</h2>
   <%= form_for("contact",:url =>  contact_us_home_index_path, :method => "post",:remote => true ) do |f| %>
     <p>
-      <%= text_field_tag :name,params[:name] %>
       <% if params[:name_error] %>
         <span style="color:red; font-size: 11px;"><%= params[:name_error] %></span>
       <% end %>
+      <%= text_field_tag :name,params[:name] %>
     </p>
     <p><span>Your Name</span></p>
     <p>
-      <%= text_field_tag :email,params[:email] %>
       <% if params[:email_error] %>
         <span style="color:red; font-size: 11px;"><%= params[:email_error] %></span>
       <% end %>
+      <%= text_field_tag :email,params[:email] %>
     </p>
     <p><span>Your Email</span></p>
     <p>
-      <%= text_field_tag :message,params[:message] %>
-
       <% if params[:message_error] %>
         <span style="color:red; font-size: 11px;"><%= params[:message_error] %></span>
       <% end %>
+      <%= text_field_tag :message,params[:message] %>
     </p>
     <p><span>Message</span></p>
 
-    <p><span>3+1=?</span> <%= text_area_tag :captcha,nil,:style => "width:70px;" %>
-      <% if params[:captcha_error] %>
+    <p><% if params[:captcha_error] %>
         <span style="color:red; font-size: 11px;"><%= params[:captcha_error] %></span>
       <% end %>
+        <span>3+1=?</span> <%= text_area_tag :captcha,nil,:style => "width:70px;" %>
     </p>
     <p class="btn-spacing">
       <%= submit_tag "Send Message", :class => "btn-sendMessage" %>

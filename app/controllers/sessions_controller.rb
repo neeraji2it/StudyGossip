@@ -2,6 +2,7 @@ class SessionsController < Devise::SessionsController
 
   def new
     @users = User.all
+    render layout: false
   end
 
   def create

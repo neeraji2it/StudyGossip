@@ -1,32 +1,48 @@
-<div id="Tweet-summary" style="float: left;left: 400px;position: absolute;top: 52px;width: 35%;">
-  <div id="title">Send Invitation To Teacher</div><br />
-  <%= form_for(@teacher, :url => school_teachers_path(@school),:html => {:id => "commentForm"}) do |f| %>
-    <table>
-      <tr>
-        <td valign="top">First Name:</td>
-        <td><%= f.text_field :first_name, :class => 'required', :id => "cfame"%></td>
-      </tr>
-      <tr>
-        <td valign="top">Last Name:</td>
-        <td><%= f.text_field :last_name, :class => 'required', :id => "lfame"%></td>
-      </tr>
-      <tr>
-        <td valign="top">Email:</td>
-        <td><%= f.text_field :email, :class => 'text required email', :id => "inputEmail" %></td>
-        <td><%= validation_error(@teacher.errors["email"])%></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "Send Invitation", :class => 'btn'%></td>
-      </tr>
-    </table>
-  <% end %>
-  <span style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(OR)</span>
-  <div>
-    <h3>Send Invitation To Teacher</h3>
-    <%= render :partial => "upload_csvs/teacher_upload_csv" %>
+<div id="right-column">
+    <h2><span class="icon-sendinvitation"></span>Send Invitation To Teacher</h2>
+    <div class="box-name box-send clearfix">
+      <div class="ccrow"> <%= link_to "Students", school_students_path(@school) %> </div>
+      <%= form_for(@teacher, :url => school_teachers_path(@school),:html => {:id => "commentForm"}) do |f| %>
+      <div class="frow frow-class">
+        <div> First Name: </div>
+        <div>
+        <%= f.text_field :first_name, :class => 'required input-class' %>
+          
+        </div>
+      </div>
+      <div class="frow frow-class">
+        <div> Last Name: </div>
+        <div>
+        <%= f.text_field :last_name, :class => 'required input-class' %>
+        </div>
+      </div>
+      <div class="frow frow-class">
+        <div> Email: </div>
+        <div>
+        <%= f.text_field :email, :class => 'text required email input-class' %>
+        <%= validation_error(@teacher.errors["email"])%>
+        </div>
+      </div>
+      
+
+      <div class="frow frow-class">
+        <div> </div>
+        <div>
+          <input alt="" title="Send Invitation" type="submit" class="btn btn-save" value="Send Invitation"/>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="frow frow-class">
+        <div> </div>
+        <div> <span>Or</span> </div>
+      </div>
+      
+      <%= render :partial => "upload_csvs/teacher_upload_csv" %>
+    </div>
   </div>
-</div>
+
+  
 <script>
   $("#commentForm").validate();
 </script>

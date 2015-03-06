@@ -1,7 +1,7 @@
 /*
 *= require bootstrap-multiselect
 */
-@import 'jquery-ui.css';
+
 .pagination ul{
     margin: 0;
     padding: 0;
@@ -38,13 +38,6 @@
     background-color: #FFFF80;
 }
 
-#user_photo, #PreviewImage, #PreviewImage1{
-    height: 70px;
-    left: -15px;
-    position: relative;
-    top: 10px;
-    width: 68px;
-}
 
 .pagination a.currentpage{
     background-color: #2e6ab1;
@@ -353,6 +346,7 @@ a{
 #img_show, #img_show1{
     display: none;
 }
+
 #realupload, #realupload1{
     margin-left: -9px;
     margin-top: -38px;
@@ -391,4 +385,8 @@ a{
     opacity:0.0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+label.error {
+    color: red;
 }

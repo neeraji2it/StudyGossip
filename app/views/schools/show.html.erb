@@ -1,3 +1,16 @@
-Total No.of Students : <%= link_to @students.count,school_students_path(current_school_admin) %>
-Total No.of Teachers : <%= link_to @teachers.count,school_teachers_path(current_school_admin) %>
-Total No.of Classes :<%= link_to @classes.count,school_clses_path(current_school_admin) %>
+<div id="right-column">
+	<h2><span class="icon-dashboarD"></span>Dashboard</h2>
+	<h5>Total No.of</h5>
+	<div class="box-name box-total clearfix">
+		<ul class="list-total">
+			<li> 
+              <%= link_to "<div class='circle1'><h6>#{@students.count}</h6><span>Students</span>".html_safe,school_students_path(current_school_admin), title: "Students" %>
+			</li>
+			<li> 
+              <%= link_to "<div class='circle1'><h6>#{@teachers.count}</h6><span>Teachers</span>".html_safe,school_teachers_path(current_school_admin), title: "Teachers" %>
+			</li>
+			<li> 
+              <%= link_to "<div class='circle1'><h6>#{@classes.count}</h6><span>Classes</span>".html_safe,school_clses_path(current_school_admin), title: "Classes" %>
+			 </li>
+		</ul>
+</div>

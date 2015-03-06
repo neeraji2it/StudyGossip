@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>School Admin</title>
-    <link rel="shortcut icon" href="/assets/favicon.png" />
-    <%= stylesheet_link_tag "/assets/bootstrap_files/bootstrap","screen","application","simple-overlay", "jquery.notifyBar","/assets/bootstrap_files/bootstrap-responsive","jquery.simplyscroll" %>
-    <%= javascript_include_tag "application","/assets/jquery.validate", "jquery.notifyBar","jquery.simplyscroll","jquery.remotipart","/assets/bootstrap_files/bootstrap-transition.js","/assets/bootstrap_files/bootstrap-alert.js","/assets/bootstrap_files/bootstrap-modal.js","/assets/bootstrap_files/bootstrap-dropdown.js","/assets/bootstrap_files/bootstrap-scrollspy.js","/assets/bootstrap_files/bootstrap-tab.js","/assets/bootstrap_files/bootstrap-tooltip.js","/assets/bootstrap_files/bootstrap-popover.js","/assets/bootstrap_files/bootstrap-button.js","/assets/bootstrap_files/bootstrap-collapse.js","/assets/bootstrap_files/bootstrap-carousel.js","/assets/bootstrap_files/bootstrap-typeahead.js","http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+    <link rel="shortcut icon" href="/assets/new_ui_images/logo3.png" />
+    <%= stylesheet_link_tag "application", "jquery.notifyBar","jquery.simplyscroll", "/assets/css/default.css" %>
+    <%= javascript_include_tag "application","/assets/js/jquery.min.js","/assets/jquery.validate", "jquery.notifyBar","jquery.simplyscroll","jquery.remotipart", "/assets/js/bootstrap/bootstrap.min.js", "/assets/js/html5.js", "/assets/js/navjs/waypoints.min.js", "/assets/js/navjs/navbar.js", "/assets/js/custom.js" %>
     <%= csrf_meta_tags %>
     <% ['notice', 'error', 'warning'].each do |f|%>
       <% if flash[f.to_sym]%>
@@ -20,40 +20,61 @@
         </script>
       <%end%>
     <%end%>
-    <style>
-      body { padding-top: 60px; }
-    </style>
+    
   </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <div class="nav-collapse collapse">
-            <% if current_school_admin %>
-              <ul class="nav" style="margin: -8px 10px 0 0;">
-                <li class="<%=  params[:controller] == "schools" && params[:action] == "show" ? "active" : ""%>"><%= link_to "Dashboard", school_path(@school), :class => "menubanneritem button" %></li>
-                <li class="<%=  params[:controller] == "students" && params[:action] == "new" || params[:action] == 'create' ? "active" : ""%>"><%= link_to "Invite Students", new_school_student_path(@school), :class => "menubanneritem button" %></li>
-                <li class="<%=  params[:controller] == "teachers" && params[:action] == "new" || params[:action] == 'create' ? "active" : ""%>"><%= link_to "Invite Teachers", new_school_teacher_path(@school), :class => "menubanneritem button" %></li>
-                <li class="<%=  params[:controller] == "clses" && params[:action] == "new" || params[:action] == 'create' ? "active" : ""%>"><%= link_to "Create Class", new_school_clse_path(@school), :class => "menubanneritem button" %></li>
-              </ul>
-            <% end %>
-            <ul class="nav pull-right">
-              <div class="btn-group">
-                <!-- dropdown menu links -->
-                <%= link_to "Sign out", destroy_school_admin_session_path,:method => 'delete', :class => "menubanneritem button" %>
-              </div>
-            </ul>
-          </div>
-        </div>
+  <body class="afterLogin box-mainpost">
+<header>
+  <div id="sticky-bar" class="clearfix">
+  <div id="sticky-bar-inside">
+      <div class="top-header clearfix">
+    <h1 id="logo"><a href="#" title="StudyGossip"></a></h1>
+    <p>
+      <input title="Sign out" alt="" type="submit" value="Sign out" class="btn"/>
+    </p>
+  </div>  
+    </div>
+  </div>  
+</header>
+<article>
+ <% if current_school_admin %>
+  <div id="left-column">
+    <div class="navbar-header">
+    <%= link_to "Sign out", destroy_school_admin_session_path,:method => 'delete', :class => "navbar-toggle button" %>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <div id="navigation">
+        <ul class="main-navigation clearfix">
+          <li class="<%=  params[:controller] == "schools" && params[:action] == "show" ? "icon-dashboard active" : "icon-dashboard"%>"><%= link_to "<span>Dashboard</span>".html_safe, school_path(@school) %></li>
+          <li class="<%=  params[:controller] == "students" && params[:action] == "new" || params[:action] == 'create' ? "icon-student active" : "icon-student"%>"><%= link_to "<span>Invite Students</span>".html_safe, new_school_student_path(@school) %></li>
+          <li class="<%=  params[:controller] == "teachers" && params[:action] == "new" || params[:action] == 'create' ? "icon-teacher active" : "icon-teacher"%>"><%= link_to "<span>Invite Teachers</span>".html_safe, new_school_teacher_path(@school) %></li>
+          <li class="<%=  params[:controller] == "clses" && params[:action] == "new" || params[:action] == 'create' ? "icon-class active" : "icon-class"%>"><%= link_to "<span>Create Class</span>".html_safe, new_school_clse_path(@school) %></li>
+
+        </ul>
       </div>
     </div>
-    <div style="max-height:545px;">
-      <div class="container">
-        <div class="row-fluid">
-          <%= yield %>
-        </div>
-      </div>
+  </div>
+  <% end %>
+  <%= yield %>
+  
+  <p id="back-top" class="pulse"><a title="back to top" href="#top"></a></p>
+</article>
+<footer>
+  <div class="box-footer clearfix">
+    <div class="copyright">
+      <p>&copy; 2012 Eduposts</p>
     </div>
+    <ul class="menu-footer">
+      <li><a href="#" title="About">About</a></li>
+      <li><a href="#" title="Help" >Help</a></li>
+      <li><a href="#" title="Terms"> Terms</a></li>
+      <li><a href="#" title="Privacy">Privacy</a></li>
+      <li><a href="#" title="Blog">Blog</a></li>
+    </ul>
+  </div>
+</footer>
+
+    
     <div id='overlay' style='filter:alpha(opacity=50);'></div>
     <div align='center' id='popup_box'>
       <div style='float: right; margin-top: -40px;margin-right:-40px'>

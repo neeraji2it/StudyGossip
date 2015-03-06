@@ -1,15 +1,20 @@
-<div class="whats_happening">Important Links</div>
+<h2>Important Links</h2>
 <% if @links.present? %>
   <% for link in @links %>
-    <div class="faqs_list" style="text-align: left;">
-      Class Name: <%= link.subject.cls.class_name if link.subject.present?  %><br/>
-      Subject Name: <%=  link.subject.subject_name if link.subject.present?%>
-      <div class="faq_title">
-       Title:  <%= link.title %><br/>
-       Links: <%= link.links %>
-      </div>
-    </div><br />
+  <div class="frow frow-profile">
+          <div>
+          <div class="box-content clearfix"> 
+            <p>
+            Class Name: <%= link.subject.cls.class_name if link.subject.present?  %><br/>
+            Subject Name: <%=  link.subject.subject_name if link.subject.present?%>
+            </p>
+            <p>
+            Title:  <%= link.title %><br/>
+            Links: <%= link.links %>
+            </p>
+          </div>
+          </div>
   <% end %>
 <% else %>
-  <span style="color: red;position: relative;top: 60px;">No Important Links</span>
+  <span style="color: red;">No Important Links</span>
 <% end %>

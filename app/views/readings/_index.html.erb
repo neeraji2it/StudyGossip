@@ -1,15 +1,21 @@
 <div class="whats_happening">Readings</div>
 <% if @readings.present? %>
   <% for reading in @readings %>
-    <div class="faqs_list" style="text-align: left;">
-      Class Name: <%= reading.subject.cls.class_name %><br/>
-      Subject Name: <%=  reading.subject.subject_name%>  
-      <div class="faq_title">
-        Title: <%= reading.title %><br/>
-        Reading: <%= reading.reading %>
-      </div>
-    </div><br />
+  <div class="frow frow-profile">
+          <div>
+          <div class="box-content clearfix"> 
+            <p>
+            Class Name: <%= reading.subject.cls.class_name %><br/>
+            Subject Name: <%=  reading.subject.subject_name%>  
+            </p>
+            <p>
+             Title: <%= reading.title %><br/>
+             Reading: <%= reading.reading %>
+            </p>
+          </div>
+          </div>
+    
   <% end %>
 <% else %>
-  <span style="color: red;position: relative;top: 60px;">No Readings</span>
+  <span style="color: red;">No Readings</span>
 <% end %>

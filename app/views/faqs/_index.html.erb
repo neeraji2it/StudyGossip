@@ -1,15 +1,20 @@
-<div class="whats_happening">FAQ's</div>
+<h5>FAQ's</h5>
 <% if @faqs.present? %>
   <% for faq in @faqs %>
-    <div class="faqs_list" style="text-align: left;">
-      Class Name: <%= faq.subject.cls.class_name %><br/>
-      Subject Name: <%=faq.subject.subject_name%>  
-      <div class="faq_title">
-        Q: <%= faq.question %> ? <br/>
-        A: <%= faq.answer %>
-      </div>
-    </div><br />
-  <% end %>
+  <div class="frow frow-profile">
+          <div>
+          <div class="box-content clearfix"> 
+            <p>
+            Class Name: <%= faq.subject.cls.class_name %><br/>
+            Subject Name: <%=faq.subject.subject_name%>  
+            </p>
+            <p>
+             Q: <%= faq.question %> ? <br/>
+             A: <%= faq.answer %>
+            </p>
+          </div>
+          </div>
+      <% end %>
 <% else %>
-  <span style="color: red;position: relative;top: 60px;">No FAQ's</span>
+  <span style="color: red;">No FAQ's</span>
 <% end %>

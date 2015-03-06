@@ -1,13 +1,26 @@
 <%= form_for :user, :url => student_upload_csv_school_upload_csvs_path(@school), :html => {:multipart => true}, :remote => true do |f| %>
-  <table>
-    <tr>
-      <td><%= f.label :csv, "Select csv file" %></td>
-      <td><%= f.file_field :csv %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit "Upload" %></td>
-    </tr>
-  </table>
+
+     <div class="frow frow-class">
+        <div>
+          <div class="top-spacing"> Select csv file: </div>
+        </div>
+        <div>
+          <textarea title="Attach file" placeholder="No file chosen" class="textarea-no" id="uploadFile" disabled="disabled"></textarea>
+          <div class="box-attech"> 
+          <span class="btn btn-file">Attach file
+          <%= f.file_field :csv %>
+          </span> 
+            
+          </div>
+          <input title="Upload" type="submit" alt="" value="Upload" class="btn btn-post btn-upload"/>
+        </div>
+      </div>
+  
 <% end %>
-<span style="float: right;"><%= link_to "Download CSV file",""  %></span>
+
+<script type="text/javascript">
+   document.getElementById("user_csv").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+</script>
+

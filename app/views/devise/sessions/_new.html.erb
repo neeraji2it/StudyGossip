@@ -1,38 +1,88 @@
-<div class="main">
-  <div class="row">
-    <div class="span10">
-      <div class="sign_up_content">
-        <div style="display :none;color :red; font-size: 14px;position: relative;z-index: 1001;top: 10px;" id=<%= params[:role] == 'student' ? 'error' : 'error2'%>>Invalid Email/Password</div>
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class =>"form-horizontal" },:remote => true) do |f| %>
-          <%= f.hidden_field :role,:value => params[:role] %>
-          <table cellpadding="20px">
-            <tr>
-              <td><%= f.email_field :email, :class => 'input-xlarge', :id => "inputEmail", :placeholder => "Email" %></td>
-            </tr>
-            <tr>
-              <td><%= f.password_field :password, :class => 'input-xlarge', :id => "inputPassword", :placeholder => "Password" %></td>
-            </tr>
-            <tr>
-              <td><%#= link_to_function "Forgot Password?", "password_login('#{params[:role]}')" %>
-                <button type="submit" style="background: none; border: none;left: 85px;position: relative;top: 0px;"><%= params[:role] == 'student' ? (image_tag("/assets/login.png", :border=>'0')) : (image_tag("/assets/login copy.png", :border=>'0')) %></button></td>
-            </tr>
-          </table>
-        <% end %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>studygossip</title>
+<link href="/assets/css/teacher.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="/assets/js/jquery.min.js"></script>
+<%= javascript_include_tag "application" %>
+<!--[if IE]>
+> <link rel="stylesheet" href="css/ie9.css"/>
+><![endif]-->
+</head>
+<body>
+<header>
+  <div class="container"> </div>
+</header>
+<article>
+  <div id="boxLogin" class="box-login">
+    <div class="container">
+      <h1 id="logo"><a href="#" title="StudyGossip"></a></h1>
+      <div class="box-signup">
+        <ul class="list-signup">
+          <li>
+            <div class="clearfix">
+              <h2>Sign up<span class="circle"><i class="fa fa-lock fontsize"></i></span></h2>
+              <h3>Content here content here</h3>
+              <ul class="list-content">
+                <li>Lorem Ipsum is simply dummy text of the printing</li>
+                <li>There are many variations of passages</li>
+                <li>Contrary to popular belief, Lorem Ipsum is not simply</li>
+                <li>Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical</li>
+              </ul>
+              <p>
+                <input title="Register" type="submit" value="Register" class="btn-register"/>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="center-line"></div>
+          </li>
+          <li>
+            <div class="box-singin clearfix">
+              <h2>Sign in<span class="circle user"><i class="fa fa-user"></i></span></h2>
+              <div style="display :none;color :red; font-size: 14px;position: relative;z-index: 1001;" id=<%= params[:role] == 'student' ? 'error' : 'error2'%>>Invalid Email/Password</div>
+           <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class =>"form-horizontal" }, :remote => true) do |f| %>
+            <%= f.hidden_field :role,:value => params[:role] %>
+              <h4>Username</h4>
+              <p class="bposi">
+              <%= f.email_field :email, :class => 'input-username', :id => "inputEmail", :placeholder => "Email" %>
+                <span class="input-user"></span> </p>
+              <h4>Password</h4>
+              <p class="bposi bottom-spacing-remove">
+              <%= f.password_field :password, :class => 'input-password', :id => "inputPassword", :placeholder => "Password" %>
+                <span class="input-user input-lock"></span> </p>
+              <div class="checkboxFive">
+                <input id="checkboxFiveInput" type="checkbox" name="" value="1">
+                <label title="I agree to the terms & conditions and the quality policy." for="checkboxFiveInput"></label>
+              </div>
+              <p> <a href="#" title="" class="blue-color text-remember">Remember Me?</a> <a href="#" title="Forgot your password?" class="fright blue-color text-remember">Forgot your password?</a> </p>
+              <p>
+                <input title="Sign in" type="submit" value="Sign in" class="btn-register active"/>
+              </p>
+            <% end %>
+            </div>
+          </li>
+        </ul>
       </div>
-    </div><!--/span5-->
+    </div>
   </div>
-</div>
-<style>
-  .span10 {
-    margin-left: 310px;
-    width: 780px;
-  }
-
-  h2{
-    display: none;
-  }
-
-  #user_school_admin_id,#user_role{
-    width: 470px;
-  }
-</style>
+  <p id="back-top" class="pulse"><a title="back to top" href="#top"></a></p>
+</article>
+<footer>
+  <div class="container"> </div>
+</footer>
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script type="text/javascript" language="javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script> 
+<script type="text/javascript" language="javascript" src="/assets/js/html5.js"></script> 
+<script type="text/javascript" language="javascript" src="/assets/js/navjs/waypoints.min.js"></script> 
+<script type="text/javascript" language="javascript" src="/assets/js/navjs/navbar.js"></script> 
+<script type="text/javascript" language="javascript" src="/assets/js/custom.js"></script>
+</body>
+</html>

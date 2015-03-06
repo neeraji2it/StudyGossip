@@ -75,3 +75,182 @@ ol#updates li.entryMessage{
 li.message .convo-contain,.my_conversations .convo-contain-small{
     display:block;text-align:right
 }.stream-list li.message .convo-contain{display:inline-block}#conversation_sidebar li.message .convo-contain,#conversation li.message li .convo-contain{display:none}#conversation li.message li.reply-dot{list-style:none;padding-left:0;margin-left:0}#conversation_sidebar li.message .messageTools li:nth-child(2){list-style-type:none;margin-left:0;padding-left:0}.close-convo{right:65px;position:absolute;top:0;z-index:11}.convo-contain:hover{text-decoration:none}.conversation_chart img{width:auto}.conversation_chart>a{display:block;text-align:center}#conversation_modal .conversation_chart{width:100%;margin:0;cursor:pointer}.chart-bar{background:#f8f8f8;background-image:-moz-linear-gradient(top,#f8f8f8,#ddd);background-image:-o-linear-gradient(top,#f8f8f8,#ddd);background-image:-webkit-linear-gradient(top,#f8f8f8,#ddd);background-image:linear-gradient(top,#f8f8f8,#ddd);background-clip:padding-box;border-top:1px solid #dadada;border-bottom:1px solid #dadada}#conversation_modal .chart-bar{position:absolute;top:20px;right:20px;border:1px solid #d0d0d0;border-radius:3px;z-index:1}.chart-tools{float:right}.chart-tools a{background:url("/images/web2/chart-tools/chart-tools-sprite.png") no-repeat;border-left:1px solid #d0d0d0;border-right:1px solid #f5f5f5;float:left;height:30px;text-indent:-9999px;width:35px}.chart-tools a.download{background-position:0 0}.chart-tools a.download:hover{background-position:-35px 0}.chart-tools a.conversation{background-position:0 -30px}.chart-tools a.conversation:hover{background-position:-35px -30px}.my_conversations{list-style-type:none;margin:0}.my_conversations .icon-contain{margin-right:6px}.myconvo-top:first-child{border-top:0}.myconvo-top{background-color:#f7f7f7;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;color:#898989;padding:7px 8px;position:relative;text-shadow:1px 1px 1px #fff;z-index:2}.myconvo-top a{color:#393939;font-weight:bold}.myconvo-carat{background:url("/images/web2/carat-bottom.png?1342725245") no-repeat;bottom:-8px;left:16px;height:8px;position:absolute;width:15px}.myconvo-bottom{background:#fff;padding:12px 8px 9px;position:relative}.myconvo-bottom:hover{background:#eff1f5}.my_conversations a.username{font-size:12px;margin:0;text-shadow:1px 1px 1px #fff}.my_conversations a.username:hover{text-decoration:none}.my_conversations .avatar{height:30px;margin:0;width:30px}h4.myconvo{color:#898989;font-weight:normal;font-size:12px;margin-bottom:12px;text-shadow:1px 1px 1px #fff}.stream-list>li.entry-message,#conversation_sidebar .stream-list li.entry-message:hover,#conversation_sidebar .stream-list li.entry-message:hover li{background:#535353;color:#fff}.stream-list li.entry-message:before{content:url("/images/web2/arrow-left.png?1342725245");height:13px;left:-8px;position:absolute;top:30px;width:8px}.small-style li.entry-message a.username,.entry-message a.username{color:#fff}.entry-message a{color:#9ebaf6}.entry-message .message-date a,.entry-message .message-source a{color:#b0b0b0}#conversation_sidebar ul.messageTools,#conversation_sidebar .stream-list li ul.messageTools{font-size:12px}ul.searchResults{margin:0 0 18px;list-style:none}
+
+
+/* conversation.html specific */
+.conversation_right_box {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 425px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 1px 1px rgb(255, 255, 255) inset, 1px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.conversation_middle_box {
+    position: fixed;
+    bottom: 46%;
+    right: 45%;
+    width: 450px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 1px 1px rgb(255, 255, 255) inset, 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.conversation_post_pic {
+    float: left;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+h4.conversation_post_name {
+    float: left;
+    font-size: 18px;
+    color: black;
+}
+
+.started_this_conversation {
+    float: left;
+    color: gray;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.conversation_post_content {
+    float: left;
+    font-size: 18px;
+    width: 77%;
+    height: 100%;
+}
+
+.conversation_post_date {
+    float: left;
+    margin-top: 5px;
+    font-size: 10px;
+    color: gray;
+}
+
+.conversation_post_input_box {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    height: 20px;
+    background-color: #f0f2f4;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.conversation_post_pic_small {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.conversation_post_input_small {
+    float: left;
+    width: 82%;
+    overflow: auto;
+}
+
+.thirty_by_thirty {
+    height: 30px;
+    width: 30px;
+}
+
+
+
+.conversation_post_box {
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.conversation_poster_name {
+    float: left;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 10px;
+}
+
+.conversation_poster_name a{
+    color: black;
+}
+
+.conversation_poster_at_name {
+    float: left;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 10px;
+    color: gray;
+
+}
+
+.conversation_poster_content {
+    float: left;
+    margin-top: 5px;
+    width: 84%;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.conversation_action_row {
+    float: left;
+    margin-top: 3px;
+    margin-left: 50px;
+    font-size: 10px;
+    line-height: 10px;
+    color: gray;
+}
+
+.conversation_icon {
+    margin-top: -3px;
+    margin-right: 3px;
+}
+
+
+#realupload, #realupload1{
+    margin-left: -9px;
+    margin-top: -38px;
+    overflow: hidden;
+    width: 29px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+#realupload11{
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+#file_browse_wrapper1{
+    display: none;
+    margin-left: 14px;
+    margin-top: 0px;
+}
+
+#file_browse_wrapper,#file_browse_wrapper1 {
+    width: 22px;
+    height: 22px;
+    overflow:hidden;
+}
+
+#file_browse_wrapper{
+    margin-top: 9px;
+}
+
+#file_browse{
+    margin-left:-145px;
+    margin-top: -32px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+label.error {
+    color: red;
+}

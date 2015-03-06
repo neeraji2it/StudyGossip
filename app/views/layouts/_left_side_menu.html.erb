@@ -1,0 +1,108 @@
+<% @user ||= current_user %>
+<div id="left-column">
+    <div class="box-porfile">
+      <div class="frow">
+        <div>
+          <div class="thum-user1">
+          <%= profile_picture %>
+            </div>
+        </div>
+        <div class="outer-box-shivraj">
+          <div class="box-shivraj">
+            <h6><%= @user.fullname %></h6>
+            <a href="#" title="View profile">View my profile page</a>
+          </div>
+        </div>
+      </div>
+      <ul class="list-post clearfix">
+        <li><%= @user.tweets.where("reply IS NULL").count %><span>Posts</span></li>
+        <li><%= @user.tweets.where("reply IS NOT NULL").count %><span>Replies</span></li>
+      </ul>
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-align-justify"></span> </button>
+    </div>
+    <div class="navbar-collapse collapse">
+      <div id="navigation">
+        <ul class="main-navigation clearfix">
+          <li class="icon-home <%= (params[:controller] == 'profiles' && params[:action] == 'index') ? 'active' : '' %>">
+             <%= link_to 'Home', profiles_path(:school_name => current_user.school_admin.school)  %>
+          </li>
+          <li class="icon-inbox <%= (params[:controller] == 'notifications' && (params[:action] == 'index' || params[:action] == 'posts')) ? 'active' : '' %>">
+          <% if (params[:controller] == 'notifications' && (params[:action] == 'index' || params[:action] == 'posts')) %>
+
+            <div class="panel-group" id="accordion1">
+              <div class="panel panel-default">
+                <div class="panel-heading"> <a class="accordion-toggle collapsed" data-toggle="collapse" title="Inbox" data-parent="#accordion1" href="#collapse2"><span>Inbox</span></a> </div>
+                
+                <div id="collapse2" class="panel-collapse collapse">
+                  <ul class="list-normal list-me">
+                    <li><%= link_to "Mentions", notifications_path(:school_name =>current_user.school_admin.school), :onclick => 'graph_id(this)' %></li>
+                    <li><%= link_to "Announcements", class_teachertweets_path(:school_name =>current_user.school_admin.school,:class_id =>current_user.id,:post=>"announcement"), :remote => true, :onclick => 'graph_id(this)' %></li>  
+                    <li><%= link_to "Assignments", class_teachertweets_path(:school_name =>current_user.school_admin.school,:class_id =>current_user.id,:post=>"assignment"), :remote => true, :onclick => 'graph_id(this)' %></li>
+                    <li>
+                       <%= link_to "Faqs", class_faqs_path(:school_name =>current_user.school_admin.school,:class_id =>current_user.id), :remote => true, :onclick => 'graph_id(this)' %>
+                    </li>
+                    <li>
+                    <%= link_to "Readings", class_readings_path(:school_name =>current_user.school_admin.school,:class_id =>current_user.id), :remote => true, :onclick => 'graph_id(this)' %>
+                    </li>
+                    <li>
+                    <%= link_to "Important Links", class_importent_links_path(:school_name =>current_user.school_admin.school,:class_id =>current_user.id), :remote => true, :onclick => 'graph_id(this)' %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="hover-dropdown">
+              <div>
+                <div> <a class="accordion-toggle collapsed" data-toggle="collapse" title="Me"></a> </div>               
+                  <ul class="list-normal list-me">
+                     <li><%= link_to "Posts", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'post'), :remote => true, :title => "Posts" %></li>
+                    <li><%= link_to "Replies", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'reply'), :remote => true, :title => "Replies" %></li>  
+                    <li><%= link_to "Favorites", favorites_profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'favorite'), :remote => true, :title => "Favorites" %></li>
+                  </ul>               
+              </div>
+            </div>
+            <% else %>
+          <%= link_to 'Inbox', notifications_path(:school_name => current_user.school_admin.school)  %>
+          <% end %>
+          </li>
+          <li class="icon-user <%= (params[:controller] == "profiles" && (params[:action] == 'show' || params[:action] == 'edit' || params[:action] == 'edit_password' || params[:action] == 'update' || params[:action] == 'update_password')) ? 'active' : '' %>">
+          <% if (params[:controller] == "profiles" && (params[:action] == 'show' || params[:action] == 'edit' || params[:action] == 'edit_password' || params[:action] == 'update' || params[:action] == 'update_password')) %>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading"> <a class="accordion-toggle collapsed" data-toggle="collapse" title="Me" data-parent="#accordion" href="#collapse1"><span>Me</span></a> </div>
+                <% if @user.id == current_user.id %>
+                <div id="collapse1" class="panel-collapse collapse">
+                  <ul class="list-normal list-me">
+                    <li><%= link_to "Posts", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'post'), :remote => true, :title => "Posts" %></li>
+                    <li><%= link_to "Replies", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'reply'), :remote => true, :title => "Replies" %></li>  
+                    <li><%= link_to "Favorites", favorites_profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'favorite'), :remote => true, :title => "Favorites" %></li>
+                  </ul>
+                </div>
+                <% end %>
+              </div>
+            </div>
+            <% if @user.id == current_user.id %>
+            <div class="hover-dropdown">
+              <div>
+                <div> <a class="accordion-toggle collapsed" data-toggle="collapse" title="Me"></a> </div>               
+                  <ul class="list-normal list-me">
+                     <li><%= link_to "Posts", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'post'), :remote => true, :title => "Posts" %></li>
+                    <li><%= link_to "Replies", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'reply'), :remote => true, :title => "Replies" %></li>  
+                    <li><%= link_to "Favorites", favorites_profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id, :post => 'favorite'), :remote => true, :title => "Favorites" %></li>
+                  </ul>               
+              </div>
+            </div>
+            <% end %>
+            <% else %>
+            <%= link_to 'Me', profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id)  %>
+            <%end%>
+          </li>
+          <li class="icon-class <%= (params[:controller] == 'classes' && (params[:action] == 'index' || params[:action] == 'show'|| params[:action] == 'roster' || params[:action] == 'invite_students' || params[:action] == 'faqs' || params[:action] == 'importent_links' || params[:action] == 'readings')) ? 'active' : '' %>">
+          <%= link_to "Class", classes_path(:school_name => current_user.school_admin.school) %></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

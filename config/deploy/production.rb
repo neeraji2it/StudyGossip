@@ -4,3 +4,4 @@ set :gitrepo, "git@github.com:neeraji2it/StudyGossip.git"
 set :deploydir, "/var/www/eduposts.com/public_html"
 set :user, "neeraj"
 set :use_sudo, false
+set :branch, "NEW_UI"

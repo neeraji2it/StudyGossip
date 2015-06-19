@@ -357,23 +357,23 @@ ul.list-social-icon li a{
 ul.list-social-icon li.icon-facebook a{background:url(/assets/facebook_icon.png) no-repeat 0px 5px;}		
 ul.list-social-icon li.icon-linkedin a{background:url(/assets/image-new/icon-sprite.png) no-repeat 0px -54px;}		
 .box-input { 
-	color:#d8d4ca;
-	font-size:17px;
-	padding-bottom:70px;
-	font-family: 'RobotoRegular';
+   	color: #3498db;
+    font-family: "RobotoRegular";
+    font-size: 17px;
+		padding-bottom:70px;
 	}
 .box-input p span{ 
 	display:block;
 	padding-bottom:13px;
 	}	
 html body .box-input input, html body .box-input textarea{
-	width:100%;
-	height:60px;
-	font-size:17px;
-	color:#3f4752;
-	border-radius:3px;
-	border:none;
-	background-color:#f1f1f1;
+	 background-color: #ccc;
+    border: 2px solid #3498db;
+    border-radius: 3px;
+    color: #000;
+    font-size: 17px;
+    height: 60px;    
+    width: 100%;
 	}
 html body .box-input textarea{ min-height:40px;}
 input[type="submit"].btn-sendMessage{

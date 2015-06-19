@@ -44,6 +44,6 @@ class UserMailer < ActionMailer::Base
     @name=name
     @email = email
     @message = message
-    mail(:to => "support@eduposts.com", :subject => "Contact")
+    mail(:to => "mediacloudservices@gmail.com", :subject => "Contact")
   end
 end

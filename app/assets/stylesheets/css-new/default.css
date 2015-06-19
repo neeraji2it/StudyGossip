@@ -377,14 +377,15 @@ html body .box-input input, html body .box-input textarea{
 	}
 html body .box-input textarea{ min-height:40px;}
 input[type="submit"].btn-sendMessage{
-	width:100%;
-	font-size:25px;
-	color:#FFF;
-	height:inherit;
-	max-width:270px;
-	border-radius:3px;
-	padding:23px 10px;
-	background-color:#3498db
+	 background-color: #3498db;
+    border-radius: 3px;
+    color: #fff;
+    float: right;
+    font-size: 25px;
+    height: inherit;
+    max-width: 270px;
+    padding: 23px 10px;
+    width: 100%;
 	}
 input[type="submit"].btn-sendMessage:hover{ background-color:#3e3e3e;}	
 .btn-spacing{ padding-top:30px;}			

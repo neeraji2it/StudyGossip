@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140614090801) do
+ActiveRecord::Schema.define(:version => 20150622130252) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -281,6 +281,9 @@ ActiveRecord::Schema.define(:version => 20140614090801) do
     t.string   "syllabus_link_file_name"
     t.string   "syllabus_link_content_type"
     t.integer  "syllabus_link_file_size"
+    t.string   "phone"
+    t.string   "zipcode"
+    t.integer  "no_of_users"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

@@ -14,6 +14,18 @@
           <div class="controls">
             <%= f.email_field :email, :class => 'span5 text required email', :id => "inputEmail", :placeholder => "Email" %>
           </div>
+
+
+
+             <div class="controls">
+            <%= f.text_field :phone, :class => 'span5 required', :id => "clame", :placeholder => "phone" %>
+          </div>
+
+          <div class="controls">
+            <%= f.text_field :zipcode, :class => 'span5 required', :id => "zip", :placeholder => "zipcode" %>
+          </div>
+
+        
           <div class="controls">
             <%= f.select :school_admin_id, options_for_select(SchoolAdmin.all.collect{|c| [c.school_name.upcase, c.id]},:selected => (params[:user] ? params[:user][:school_admin_id] : '')),:class => 'span5', :id => "inputEmail", :placeholder => "Email"%>
           </div>

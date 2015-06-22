@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper:all
   helper_method :after_sign_in_path_for
-
+  
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
       profiles_path(:school_name => current_user.school_admin.school)
@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
       redirect_to '/'
     end
   end
+
+
   private
   def is_admin?
     unless current_admin

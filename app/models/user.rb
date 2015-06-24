@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable,:confirmable
+    :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email,:class_photo,:syllabus_link,:readings_attributes,:importent_links_attributes,:faqs_attributes,:school,:class_name,:class_description,:syllabus, :password, :password_confirmation,:terms_of_service, :remember_me,:username,:avatar,:school_admin_id,:role,:bio,:state,:major,:website,:first_name,:last_name,:reset_password_token,:phone, :zipcode
   has_many :tweets, :dependent => :destroy, :order => "created_at DESC"
@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   before_update :lowercase_name
 
   before_post_process :resize_images
-
+after_create :sent_invitation
   # Helper method to determine whether or not an attachment is an image.
   def image?
     syllabus_link_content_type =~ %r{^(image|(x-)?application)/(bmp|gif|jpeg|jpg|pjpeg|png|x-png)$}
@@ -113,6 +113,10 @@ class User < ActiveRecord::Base
   def fullname
     (self.first_name+' '+self.last_name) if !self.first_name.blank? and !self.last_name.blank?
   end
+ 
+ def sent_invitation
+   UserMailer.send_notification(self).deliver
+ end
 
   private
 

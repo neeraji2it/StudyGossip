@@ -59,11 +59,11 @@
           </div>
         
           <div class="controls">
-            <%= f.text_field :college_name, :placeholder => "College Name"%>
+            <%= f.text_field :college_name,:class => 'span5 required', :placeholder => "College Name"%>
           </div>
           <div class="controls">
-          Role
-            <%= f.select :role, options_for_select([['Student','student'], ['Instructor','teacher'],['Admin','Admin']],:selected => (params[:user] ? params[:user][:role] : '')),:class => 'span5', :id => "inputEmail", :placeholder => "Email"%>
+ 
+            <%= f.select :role, options_for_select([['Select Role',""],['Student','student'], ['Instructor','teacher'],['Admin','Admin']],:selected => (params[:user] ? params[:user][:role] : '')),:class => 'span5 required', :id => "inputEmail", :placeholder => "Email"%>
           </div>
           <button type="submit" class="btn btn-warning span5 gray_button create_my_account">Enquiry</button>
         <% end %>

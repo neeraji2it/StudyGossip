@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   layout :home_layout, only: ["index"]
+  layout :get_school_layout, :only => ['school']
+
 
   def index
     if current_user
@@ -32,6 +34,21 @@ class HomeController < ApplicationController
       render :action => 'new_user2', :layout => false
     end
 
+  end
+
+  def enquiry
+    @student = StudentInformation.new
+    render :layout => false
+  end
+
+  def student_enquiry
+    @student = StudentInformation.new(params[:student_information])
+    if @student.save
+      UserMailer.send_notification(@student).deliver
+      redirect_to '/'
+    else
+      render :action => 'enquiry', :layout => false
+    end
   end
 
   def school_login

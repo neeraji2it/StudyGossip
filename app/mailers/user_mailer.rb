@@ -11,9 +11,9 @@ class UserMailer < ActionMailer::Base
     mail(:to => school.email ,:from => 'k.ashok502@gmail.com', :subject => "School #{@school.school_name} Created.")
   end
 
-  def send_notification(user)
-    @user = user
-    mail(:to => [user.email, 'mediacloudservices@gmail.com'], :subject => 'UserSignUp Confirmation')
+  def send_notification(student)
+    @student = student
+    mail(:to => [student.email, 'bhagat@dine-media.com'], :subject => 'UserSignUp Confirmation')
   end
 
   def sent_student_invitation(school,student)

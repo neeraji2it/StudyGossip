@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
 
   def send_notification(student)
     @student = student
-    mail(:to => [student.email, 'bhagat@dine-media.com'], :subject => 'UserSignUp Confirmation')
+    mail(:to => [student.email, 'mediacloudservices@gmail.com'], :subject => 'UserSignUp Confirmation')
   end
 
   def sent_student_invitation(school,student)

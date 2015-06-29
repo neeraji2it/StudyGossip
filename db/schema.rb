@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150625115222) do
+ActiveRecord::Schema.define(:version => 20150629112220) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -132,6 +132,15 @@ ActiveRecord::Schema.define(:version => 20150625115222) do
     t.integer  "markrepot_file_size"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.string   "card_holder_name"
+    t.string   "net_payment"
+    t.string   "order_number"
+    t.string   "merchant_order_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "readings", :force => true do |t|

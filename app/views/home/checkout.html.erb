@@ -35,7 +35,7 @@
       <div class="sign_up_content">
         <h3><b>Payment History</b></h3>
           <div class="col-sm-6">
-            <b>Your Total Amount To Pay is: <%= @payment.payment_amount %></b>
+            <b>Total Amount to Pay is: <%= @payment.payment_amount %></b>
           </div>
           <br/>
           <% @params = {'sid' => SID, 'mode' => '2CO', 'merchant_order_id' => @payment.merchant_order_id} %>

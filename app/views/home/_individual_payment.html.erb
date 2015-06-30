@@ -38,10 +38,12 @@
     <div class="row">
       <div class="row">
         <div class="col-sm-12">
-          <p class="left-margin"><b>Enter No of Students:</b></p>
-            <div class="col-sm-6"><%= f.text_field :no_of_students, placeholder: "no of students", :class => "studentNo" %></div> * 50
-            <label class="totalAmt"></label>
-            <div class="col-sm-6"><%= f.text_field :payment_amount, class: 'form-control netAmount', placeholder: "Total Amount" %></div>
+          <div class="form-group">
+            <p class="left-margin"><b>Enter No of Students:</b></p>
+            <div class="col-sm-6"><%= f.text_field :no_of_students, placeholder: "no of students", :class => "studentNo" %></div> * 50 + Fee ( 999 )
+          </div>
+            
+            <div class="col-sm-6"><%= f.text_field :payment_amount, class: 'form-control netAmount', placeholder: "Total Amount" %></div> Grand Total
          </div>   
       </div>
 

@@ -32,12 +32,19 @@
 <div class="main">
   <div class="row">
     <div class="span10">
-      <% @params = {'sid' => SID, 'mode' => '2CO', 'merchant_order_id' => @payment.merchant_order_id} %>
-          <% @params['li_0_price'] = @payment.payment_amount %>
-      <% @form = Twocheckout::Checkout.form(@params, "Checkout your order") %>
-      <%p @form %>
-      <%= @form.html_safe %>
-    </div><!--/span5-->
+      <div class="sign_up_content">
+        <h3><b>Payment History</b></h3>
+          <div class="col-sm-6">
+            <b>Your Total Amount To Pay is: <%= @payment.payment_amount %></b>
+          </div>
+          <br/>
+          <% @params = {'sid' => SID, 'mode' => '2CO', 'merchant_order_id' => @payment.merchant_order_id} %>
+              <% @params['li_0_price'] = @payment.payment_amount %>
+          <% @form = Twocheckout::Checkout.form(@params, "Checkout your payment") %>
+          <%p @form %>
+          <%= @form.html_safe %>
+      </div><!--/span5-->
+    </div>
   </div>
 </div>
 </body>
@@ -45,14 +52,25 @@
 
 <style>
   input[type=submit] { 
-    color:#08233e;
-    font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
-    font-size:100%;
-    /* ... other rules ... */
     cursor:pointer;
+    -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background-color: #ed174f;
+        border-color: -moz-use-text-color -moz-use-text-color #d51245;
+        border-image: none;
+        border-radius: 2px;
+        border-style: none none solid;
+        border-width: medium medium 2px;
+        color: #fff;
+        font-family: "RobotoRegular";
+        font-size: 12px;
+        padding: 8px 18px 5px;
+        text-shadow: 0 0 0 #fff;
   }
 
   input[type=submit]:hover {
-    background-color:rgba(255,204,0,0.8);
+    background-color: green;
   }
 </style>

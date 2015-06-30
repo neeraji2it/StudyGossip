@@ -1,6 +1,7 @@
 class Payment < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :card_holder_name, :email, :zipcode, :state, :street_address, :city, :country,
-:purchased_at, :payment_amount, :net_payment, :order_number, :merchant_order_id, :status, :user_type
+:purchased_at, :payment_amount, :net_payment, :order_number, :merchant_order_id, :status, :user_type, :no_of_students
 
   validates :payment_amount, :presence => true
+  validates :payment_amount,  numericality: { only_integer: true, greater_than: 0 }
 end

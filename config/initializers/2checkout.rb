@@ -1,1 +1,1 @@
-Twocheckout::Checkout.sandbox(true)
+Twocheckout::Checkout.sandbox(false)

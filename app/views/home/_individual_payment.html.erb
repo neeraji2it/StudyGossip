@@ -5,7 +5,7 @@
       <div class="error-form"></div>
       <div class="row">
         <div class="col-sm-12">
-          <p class="left-margin"><b>Select Amount:</b></p>
+          <p class="left-margin"><b>Select Amount: <strong class="text-success">(50 USD per Student)</strong></b></p>
             <div class="col-sm-2"><%= f.radio_button :payment_amount, "50", :checked => true %> 50</div>
             <div class="col-sm-2"><%= f.radio_button :payment_amount, "100" %> 100</div>
             <div class="col-sm-2"><%= f.radio_button :payment_amount, "150" %> 150</div>
@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <p class="left-margin"><b>Enter No of Students:</b></p>
+            <p class="left-margin"><b>Enter No of Students: <stong class="text-success">(50 USD per Student)</strong></b></p>
             <div class="col-sm-6"><%= f.text_field :no_of_students, placeholder: "no of students", :class => "form-control studentNo" %></div><span class="estar">*</span> &nbsp; &nbsp; * 50 + Fee ( 999 )
           </div>
             <%= f.hidden_field :stu_field_validate, :value => "no_of_students" %>

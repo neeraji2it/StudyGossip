@@ -50,8 +50,14 @@
       <br/>
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
           <%= f.submit "Payment", class: 'btn btn-sm btn-warning left-margin' %>
+        </div>
+
+        <div class="col-sm-6">
+          <div class='btn btn-sm btn-warning left-margin clearit'>
+          Clear
+          </div>
         </div>
       </div>
     </div>
@@ -64,6 +70,11 @@
 </style>
 
 <script>
+ $(document).on("click", ".clearit", function(e) {
+  document.getElementById("payment_payment_amount").value= "";
+  document.getElementById("payment_no_of_students").value= "";
+ });
+
  $(document).on("keyup", ".studentNo", function(e) {
   var obj = $(".studentNo").val();
   if (obj == 0) {
@@ -73,4 +84,5 @@
   }
    $("#payment_payment_amount").val(total);
  });
+
 </script>

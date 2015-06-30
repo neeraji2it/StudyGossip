@@ -2,11 +2,12 @@ class HomeController < ApplicationController
   layout :home_layout, only: ["index"]
   layout :get_school_layout, :only => ['school']
 
-
   def index
     if current_user
       redirect_to profiles_path(:school_name => current_user.school_admin.school)
     end
+    @payment = Payment.new
+    @payment1 = Payment.new
   end
 
   def new_user1
@@ -97,4 +98,66 @@ class HomeController < ApplicationController
     render
   end
 
+  def post_ind_payment
+    token = Devise.friendly_token
+    @payment = Payment.new(params[:payment].merge(merchant_order_id: token, user_type: params[:user_type]))
+    @payment.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def post_institute_payment
+    token = Devise.friendly_token
+    @payment1 = Payment.new(params[:payment].merge(merchant_order_id: token, user_type: params[:user_type]))
+    @payment1.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def checkout
+    payment
+    render :layout => false
+  end
+
+  def return
+        @notification = Twocheckout::ValidateResponse.purchase({:sid => SID, :secret => SECRET, :order_number => params['order_number'], :total => params['total'], :key => params['key']})
+        @payment = Payment.where("merchant_order_id=?", params[:merchant_order_id]).first
+        p "******************************"
+        p @notification[:code]
+        p "*****************************"
+        begin
+          if @notification[:code] == "PASS"
+            @payment.first_name = params['first_name'] 
+            @payment.last_name = params['last_name']
+            @payment.card_holder_name = params['card_holder_name'],
+            @payment.email =  params['email']
+            @payment.zipcode = params['state']
+            @payment.state = params['state']
+            @payment.street_address = params['street_address']
+            @payment.city = params['city']
+            @payment.country = params['country']
+            @payment.status = 'Success'
+            @payment.purchased_at = Time.now
+            @payment.net_payment = params['total'],
+            @payment.order_number = params['order_number']
+            
+            flash[:notice] = "Your payment is successfully placed"
+            redirect_to root_url
+          else
+            @payment.status = "Failed"
+            flash[:notice] = "Error validating payment, please contact us for assistance."
+            redirect_to root_url
+          end
+          ensure
+          @payment.save
+        end
+      end
+
+      private
+
+      def payment
+        @payment = Payment.where("merchant_order_id=?", params[:id]).first
+      end
 end

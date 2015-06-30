@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-sm-6">
+  <h2><span>For individuals </span></h2>
+    <%= form_for @payment, url: post_ind_payment_home_index_path(user_type: 'individual'), :method => "POST", remote: true do |f| %>
+      <div class="error-form"></div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="left-margin"><b>Select Amount:</b></p>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "50" %> 50</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "100" %> 100</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "150" %> 150</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "200" %> 200</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "250" %> 250</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "300" %> 300</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "350" %> 300</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "400" %> 400</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "450" %> 400</div>
+            <div class="col-sm-2"><%= f.radio_button :payment_amount, "500" %> 500</div>
+         </div>   
+      </div>
+
+      <br/>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.submit "Payment", class: 'btn btn-sm btn-warning left-margin' %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-sm-6">
+  <h2>For educational institutions  </h2>
+
+  <%= form_for @payment1, url: post_institute_payment_home_index_path(user_type: 'institute'), :method => "POST", remote: true do |f| %>
+    <div class="error-form1"></div>
+
+    <div class="row">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="left-margin"><b>Enter No of Students:</b></p>
+            <div class="col-sm-6"><%= f.text_field :no_of_students, placeholder: "no of students", :class => "studentNo" %></div> * 50
+            <label class="totalAmt"></label>
+            <div class="col-sm-6"><%= f.text_field :payment_amount, class: 'form-control', placeholder: "Total Amount", :class => "netAmount" %></div>
+         </div>   
+      </div>
+
+      <br/>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.submit "Payment", class: 'btn btn-sm btn-warning left-margin' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<style>
+  .left-margin { margin-left: 15px; }
+</style>

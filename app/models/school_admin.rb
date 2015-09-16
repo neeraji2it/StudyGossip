@@ -12,7 +12,7 @@ class SchoolAdmin < ActiveRecord::Base
   validates :school_name,:first_name,:last_name, :presence => true
   validates_uniqueness_of :school_name
   has_many :users, :dependent => :destroy
-  has_many :clses, :dependent => :destroy
+  has_many :clss, :dependent => :destroy
   has_many :subjects, :dependent => :destroy
   validate :email_should_not_exist_in_student,:email_should_not_exist_in_admin
 

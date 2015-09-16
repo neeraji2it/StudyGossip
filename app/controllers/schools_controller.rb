@@ -30,10 +30,11 @@ class SchoolsController < ApplicationController
   def destroy
     @school = SchoolAdmin.find(params[:id])
     if @school.destroy
-      render :update do |page|
+      #render :update do |page|
         flash[:notice] = "Successfully deleted this school."
-        page.reload
-      end
+      #  page.reload
+redirect_to school_path(@school)
+    #  end
     end
   end
 end

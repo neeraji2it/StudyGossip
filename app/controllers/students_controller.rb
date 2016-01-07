@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
       @student_class = Studentclass.create(:user_id=>@student.id,:cls_id=>params[:class_id],:school_admin_id=>@school.id)
       @student_class.save
       @student.update_attribute(:role, 'student')
-      @student.generate_password_reset_code
+      @student.send_reset_password_instructions
       flash[:notice] = "Sccessfully Send invitation to student"
       UserMailer.sent_student_invitation(@school,@student).deliver
       redirect_to school_path(@school)
@@ -109,9 +109,12 @@ class StudentsController < ApplicationController
   def destroy
     @student = User.find(params[:id])
     if @student.destroy
-      render :update do |page|
-        flash[:notice] = "Successfully deleted this #{@student.role}."
-        page.reload
+      # render :update do |page|
+      #   flash[:notice] = "Successfully deleted this #{@student.role}."
+      #   page.reload
+      # end
+      respond_to do |format|
+        format.js
       end
     end
   end

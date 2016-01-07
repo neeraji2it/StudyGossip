@@ -1,11 +1,14 @@
 class SchoolsController < ApplicationController
-  before_filter :is_school?, :except => ['edit', 'update', 'destroy']
+  before_filter :is_school?, :except => ['show','edit', 'update', 'destroy']
   layout :get_school_layout, :except => ['edit', 'update' 'destroy']
   def show
-    @school = SchoolAdmin.find(params[:id])
-    @students = User.where("school_admin_id = '#{current_school_admin.id}' AND role = 'student'").all
-    @teachers = User.where("school_admin_id = '#{current_school_admin.id}' AND role = 'teacher'").all
-    @classes = Cls.where("school_admin_id = '#{current_school_admin.id}'").all
+    @school = current_school_admin
+    p "DFDSFDSFDSFDSFDSFDS"
+    p @school
+    p "DSFDSFSDFDSFDSFFSDFDSF"
+    @students = User.where("school_admin_id = #{@school.id} AND role = 'student'")
+    @teachers = User.where("school_admin_id = #{@school.id} AND role = 'teacher'")
+    @classes = Cls.where("school_admin_id = #{@school.id}")
     @assign_class = Teacherclass.new
   end
 
@@ -20,7 +23,8 @@ class SchoolsController < ApplicationController
     @school = SchoolAdmin.find(params[:id])
     if @school.update_attributes(params[:school_admin])
       @school.update_attribute(:reset_password_token,nil)
-      redirect_to school_login_home_index_path
+      sign_in(@school)
+      redirect_to school_path(@school)
     else
       flash.now[:error] = "Loggened in failed."
       render :action => 'edit'

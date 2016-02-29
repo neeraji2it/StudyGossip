@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
       profiles_path(:school_name => current_user.school_admin.school)
+      elsif resource_or_scope.is_a?(Parent)
+      parent_dashboards_path
     end
   end
 
@@ -38,6 +40,8 @@ class ApplicationController < ActionController::Base
   def layout?
     if current_admin
       return 'admin'
+    elsif current_parent
+      return 'parent'
     end
   end
 

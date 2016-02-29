@@ -15,7 +15,7 @@ class SchoolAdmin < ActiveRecord::Base
   has_many :clss, :dependent => :destroy
   has_many :subjects, :dependent => :destroy
   validate :email_should_not_exist_in_student,:email_should_not_exist_in_admin
-
+  has_many :parents, :dependent => :destroy 
   def email_should_not_exist_in_student
     student = User.find_by_email(self.email)
     return true unless student.present?

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  school_admin_id: 1
+  present_date: 2016-02-29
+  status: MyString
+
+two:
+  school_admin_id: 1
+  present_date: 2016-02-29
+  status: MyString

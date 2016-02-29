@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = @user.tweets.new(params[:tweet])
+
     @header = params[:post].present? ? "#{params[:post].capitalize}" : " "
     if @header == 'Reply'
       @header = 'Replies'
@@ -234,4 +235,12 @@ class ProfilesController < ApplicationController
       end
     end
   end
+
+  def teachers_show
+    @user = User.find(params[:id])
+    @school_admin_id = SchoolAdmin.find(params[:school_name])
+  end
+
 end
+
+

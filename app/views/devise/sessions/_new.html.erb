@@ -1,3 +1,5 @@
+
+<% if resource_name == :user %>
 <div class="main">
   <div class="row">
     <div class="span10">
@@ -36,3 +38,67 @@
     width: 470px;
   }
 </style>
+<% else %>
+
+<div class="container">
+
+<h2>Parent Login</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email,class: 'form-control', autofocus:true %>
+  </div>
+<br/>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class: 'form-control',autofocus:true %>
+  </div>
+
+<br/>
+  <div class="actions">
+    <%= f.submit "Log in" ,:class => "btn btn-success"%>
+  </div>
+<% end %>
+
+</div>
+
+
+<style>
+  input[type="email"]{
+width: 71%;
+padding: 2px;
+
+min-height: 30px;
+cursor: pointer;
+  }
+    input[type="password"]{
+width: 71%;
+padding: 2px;
+border: 1px solid transparent;
+min-height: 30px;
+cursor: pointer;
+box-shadow: 0px 0px 1px;
+border-radius: 1px;
+  }
+  #wrapper{
+  background-color:#ffffff;
+  }
+ input[type='email']:focus{
+  outline:none;
+   color:blue;
+}​
+ input[type='password']:focus{
+  outline:none;
+   color:blue !important;
+ 
+}​
+
+</style>
+
+
+
+
+
+
+<% end %>

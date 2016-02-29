@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   has_many :importent_links, :dependent => :destroy
   has_many :studentclasses, :dependent => :destroy
   has_many :cls, :through=> :studentclasses 
- 
+  has_many :parentusers, :dependent => :destroy
+  has_many :parents, :through => :parentusers
   has_many :teacherclasses
   has_many :cls,:through=>:teacherclasses
   has_many :subjects,:through=>:teacherclasses
-  
   attr_accessor :school
   accepts_nested_attributes_for :readings,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :faqs,  :allow_destroy  => true,:reject_if => :all_blank
@@ -59,6 +59,8 @@ class User < ActiveRecord::Base
   has_attached_file :class_photo,:styles => {:original => "900x900>", :default => "280x190>" } if Rails.env == 'development'
   validates :username,:uniqueness => true,:format => {:with => /^[\w\-@]*$/ , :message => "Only use letters, numbers with no spaces"}, :on => :update
   belongs_to :school_admin
+    has_many :teacher_attendances,  :dependent => :destroy
+
   has_many :sent_follows, :class_name => "Follow", :foreign_key => :user_id, :dependent => :destroy
   has_many :received_follows, :class_name => 'Follow', :foreign_key => :receiver_id,:dependent => :destroy
   has_many :given_marks, :class_name => "Markreport",:foreign_key => :user_id, :dependent => :destroy

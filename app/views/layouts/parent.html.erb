@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parent</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" />
+      <% ['notice', 'error', 'warning'].each do |f|%>
+      <% if flash[f.to_sym]%>
+        <script type="text/javascript" >
+          jQuery(function () {
+            jQuery.notifyBar({
+              cls: "<%= f %>",
+              html: "<%=  flash[f.to_sym] %>",
+              delay: 3000,
+              animationSpeed: "normal"
+            });
+          });
+        </script>
+      <%end%>
+    <%end%>
+      <%= stylesheet_link_tag "/assets/bootstrap.min.css" %>
+ </head>
+  <body>
+
+  
+<header class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+      <div class="container">
+        <div id="logo" class="navbar-brand"><%= link_to "Dashboard", parent_dashboards_path, :class => "menubanneritem button" %>
+
+          <% if parent_signed_in? -%>
+         <ul class="nav pull-right">
+              <li><%= link_to "Sign out",  parent_sign_out_path, :method => "get"%> </li>
+                      </ul>
+           <% else -%>
+                <ul class="nav navbar-nav navbar-right">    
+              <li><%= link_to 'Sign in', "new_user_session_path" %></li>
+              
+           </ul>
+          <% end -%>
+                 
+ </div>
+   
+ 
+        </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <%= yield %>
+   
+    </div>
+    <%= render :partial => 'layouts/google_analytics' if Rails.env == 'production' %>
+  </body>
+</html>
+
+
+
+
+
+
+
+

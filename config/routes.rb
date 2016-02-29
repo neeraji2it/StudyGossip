@@ -1,5 +1,10 @@
 WebApp::Application.routes.draw do
 
+  devise_for :parents,:controllers => {:sessions => 'parent_sessions', :passwords => 'parent_passwords'}
+  devise_scope :parent do
+ #   get "parent_login",:to => "parent_sessions#new" ,:as => "parent_login"
+   get "parent_sign_out", :to => "parent_sessions#destroy",:as => "parent_sign_out"
+  end
   devise_for :school_admins,:controllers => {:sessions => 'school_sessions', :passwords => 'school_passwords'}
 
   devise_for :users,:controllers => {:sessions => 'sessions', :passwords => 'passwords'}
@@ -23,7 +28,9 @@ WebApp::Application.routes.draw do
       end
     end
   end
-
+namespace :parent do
+  resources :dashboards
+end
   resources :students do
     collection do
       put :username
@@ -41,11 +48,13 @@ WebApp::Application.routes.draw do
       end
     end 
     resources :attendences
+    resources :teacher_attendences
     resources :teachertweets do
       collection do
         get :student_subject_posts
       end
     end
+    
     member do
       get :roster
       get :invite_students
@@ -53,7 +62,7 @@ WebApp::Application.routes.draw do
       get :graphs
       get :student_subject_show
       get :students_show
-    end
+      end
     collection do
       put :switch_theme
     end
@@ -84,6 +93,7 @@ WebApp::Application.routes.draw do
   end
 
   resources :schools do
+    resources :parents
     resources :clses do
       get :cls_subjects
       collection do
@@ -123,6 +133,7 @@ WebApp::Application.routes.draw do
       get :post
       post :create_post
       get :favorites
+      get :teachers_show
     end
     collection do
       get :search

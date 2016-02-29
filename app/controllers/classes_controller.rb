@@ -252,5 +252,4 @@ class ClassesController < ApplicationController
     subject = Subject.find(params[:subject_id]) 
     @subject_students = Studentclass.where("cls_id = #{subject.cls_id}")
   end
-  
 end

@@ -40,6 +40,11 @@ end
   resources :teachers do
     get :assign_subject
   end
+  resources :teacher_attendences do
+      collection do
+        get :attendance
+      end
+    end
 
   resources :classes,:path => "/:school_name/classes/" do
     resources :markreports do
@@ -48,7 +53,7 @@ end
       end
     end 
     resources :attendences
-    resources :teacher_attendences
+
     resources :teachertweets do
       collection do
         get :student_subject_posts

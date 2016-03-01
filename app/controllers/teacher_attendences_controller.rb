@@ -2,22 +2,18 @@ class TeacherAttendencesController < ApplicationController
 
   def new
     @school_name = SchoolAdmin.find(params[:school_name])
-    @school_admin_id = params[:school_name]
-    @user_id = params[:user_id]
+    @user = User.find(params[:class_id])
     @teacher_attendence = TeacherAttendance.new
   end
   
-  def create
-    @school_name = SchoolAdmin.find(params[:school_name])
-    @teacher_attendence = TeacherAttendance.new(params[:attendance])
-    @teacher_attendence.school_admin_id = @school_name.id
-    @teacher_attendence.user_id = params[:user_id]
-    if @teacher_attendence.save
-      flash[:notice] = "Giving TeacherAttendance Successfully"
-      redirect_to root_path
+  def attendance
+    @teacher_attendence = TeacherAttendance.find_by_user_id_and_present_date(current_user.id,params[:present_date])
+    if @teacher_attendence.present?
     else
-      flash[:notice] = "TeacherAttendance Given Failure"
-      render :new
+      TeacherAttendance.create(:user_id => current_user.id, :present_date => params[:present_date], :school_admin_id => current_user.school_admin_id)
+    end
+    respond_to do |format|
+      format.js
     end
   end
   
@@ -26,3 +22,4 @@ class TeacherAttendencesController < ApplicationController
   end
 
 end
+

@@ -113,9 +113,9 @@
         <td><%#= select_tag :user_id,  options_for_select([["Select", ""]] + User.where("school_admin_id = #{current_school_admin.id}", "role = #{"student"} ").map{|ic| [ic.first_name,ic.id]}) %>
          <%#= select_tag :user_id,  options_for_select([["Select", ""]] + User.where(role: "student").map{|ic| [ic.first_name,ic.id]}) %>
          <%= hidden_field_tag :user_id %></td>
-         <%= school.first_name %>
+         <%#= school.first_name %>
 
-            <%= school.id %>    
+            <%#= school.id %>    
       </tr>
       <tr>
         <td></td>

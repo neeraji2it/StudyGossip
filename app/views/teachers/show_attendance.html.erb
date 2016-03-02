@@ -1,0 +1,11 @@
+<% @date = Time.now.strftime("%d-%m-%Y") %>
+<% (@date.to_date.beginning_of_month..@date.to_date.end_of_month).each do |i| %>
+<% @teacher_attendance = TeacherAttendance.find_by_user_id_and_present_date(params[:id],i) %>
+
+<br/>
+<%= @teacher_attendance.present_date %>
+<br/>
+<%#= params[:id].inspect %>
+<%end%>
+
+

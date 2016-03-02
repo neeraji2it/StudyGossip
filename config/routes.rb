@@ -39,6 +39,7 @@ end
 
   resources :teachers do
     get :assign_subject
+
   end
   resources :teacher_attendences do
       collection do
@@ -116,6 +117,7 @@ end
     resources :teachers do
       member do
         get :assign_class
+        get :show_attendance
         post :assign_teachercls
       end
     end

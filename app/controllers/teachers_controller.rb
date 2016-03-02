@@ -6,6 +6,10 @@ class TeachersController < ApplicationController
     @teacher = @school.users.new
   end
 
+  def show_attendance
+    @school = SchoolAdmin.find(params[:school_id])
+  end
+
   def create
     @school = SchoolAdmin.find(params[:school_id])
     @teacher = @school.users.new(params[:user])

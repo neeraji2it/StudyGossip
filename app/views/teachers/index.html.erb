@@ -35,6 +35,7 @@
         </td>
         <td><%= school.role %></td>
         <td>
+        <%= link_to "Attendance",show_attendance_school_teacher_path(@school,school), :class => "btn btn-primary" %>
           <% if school.reset_password_token == nil %>
             <%= link_to "View Posts", posts_school_student_path(@school, school),:class=>"btn btn-primary"%> |
           <% end %>

@@ -1,8 +1,11 @@
 <%= form_for root_path do %>
 <% @date = Time.now.strftime("%d-%m-%Y") %>
 <% (@date.to_date.beginning_of_month..@date.to_date.end_of_month).each do |i| %>
+
 <% @present_user = TeacherAttendance.find_by_user_id_and_present_date(current_user.id,i) %>
-<%= i %>: <%= check_box_tag 'present_date', i, @present_user.present? ? true : false , id: "rock_#{i}" %>
+<%= i %>: <%= check_box_tag 'present_date', i, @present_user.present? ? true : false , id: "rock_#{i}" , :readonly => i.sunday == i ? true : false %> 
+
+
 <script>
   $("#rock_<%= i %>").click(function(){
     $.ajax({

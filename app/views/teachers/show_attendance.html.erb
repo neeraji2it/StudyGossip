@@ -1,28 +1,7 @@
-<% @date = Time.now.strftime("%d-%m-%Y") %>
-<% (@date.to_date.beginning_of_month..@date.to_date.end_of_month).each do |i| %>
-<%= i %>
-<% @teacher_attendance = TeacherAttendance.find_by_user_id_and_present_date(params[:id],i) %>
 
-<br/>
-<%= check_box_tag 'present_date', i, @teacher_attendance.present? ? true : false , id: "rock_#{i}" %>
-<%#= @teacher_attendance.inspect %>
-<br/>
-<%#= params[:id].inspect %>
-<script>
-  $("#rock_<%= i %>").click(function(){
-    $.ajax({
-      url: "/teacher_attendences/attendance",
-      data: {
-        present_date: $(this).val()
-      },
-      type: 'GET',
-      datatype: 'script',
-      success: function(data){
-
-      }
-    });
-  });
-</script>
-<%end%>
+ <%   @teacher_attendence = TeacherAttendance.where("school_admin_id = '#{current_school_admin.id}' ") %>
+ <%= @teacher_attendence.each do |p| %>
+ <%= p.status %>
+ <% end %>  
 
 

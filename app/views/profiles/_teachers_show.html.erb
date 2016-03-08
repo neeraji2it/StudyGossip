@@ -1,25 +1,9 @@
-<%= form_for root_path do %>
-<% @date = Time.now.strftime("%d-%m-%Y") %>
-<% (@date.to_date.beginning_of_month..@date.to_date.end_of_month).each do |i| %>
+          <% attendance = TeacherAttendance.where(:user_id=>current_user.id,:created_at=>Date.today.beginning_of_day..Date.today.end_of_day) %>
 
-<% @present_user = TeacherAttendance.find_by_user_id_and_present_date(current_user.id,i) %>
-<%= i %>: <%= check_box_tag 'present_date', i, @present_user.present? ? true : false , id: "rock_#{i}" , :readonly => i.sunday == i ? true : false %> 
+          <% if attendance.present?   %>
+          Attendance Given |
+          <% else %>
 
-
-<script>
-  $("#rock_<%= i %>").click(function(){
-    $.ajax({
-      url: "/teacher_attendences/attendance",
-      data: {
-        present_date: $(this).val()
-      },
-      type: 'GET',
-      datatype: 'script',
-      success: function(data){
-
-      }
-    });
-  });
-</script>
-<% end %>
-<% end %>
+          <%= link_to "Attendence", new_teacher_attendence_path(:user_id => current_user.id),:class=>"btn btn-mini btn-success", :remote => true%> 
+          <% end %>
+          <%= link_to "Record", teacher_attendences_path(:user_id => current_user.id),:class=>"btn btn-mini btn-success",:remote=>true%> 

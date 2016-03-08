@@ -42,9 +42,9 @@ end
 
   end
   resources :teacher_attendences do
-      collection do
-        get :attendance
-      end
+      # collection do
+      #   get :attendance
+      # end
     end
 
   resources :classes,:path => "/:school_name/classes/" do

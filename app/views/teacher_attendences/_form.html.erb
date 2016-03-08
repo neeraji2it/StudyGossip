@@ -1,0 +1,21 @@
+
+ <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :school_admin_id,:value => @school_name.id %>
+<div class="modal-body">
+  <ul class="errors"></ul>
+  <div class="control-group">
+    <label class="control-label"> Attendence :</label>
+    <div class="controls">
+      <label class="radio">
+        <%= f.radio_button :status,"present"%> Present
+      </label>
+      <label class="radio">
+        <%= f.radio_button :status,"absent"  %> Absent
+      </label>
+    </div>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+</div>
+
+  
+    <%#= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>

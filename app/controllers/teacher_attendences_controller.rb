@@ -19,7 +19,7 @@ class TeacherAttendencesController < ApplicationController
 
   def create
 
-    @teacher_attendence = TeacherAttendance.new(params[:teacher_attendance])
+    @teacher_attendence = TeacherAttendance.new(params[:teacher_attendance].merge(:present_date => Date.today))
     if  @teacher_attendence.save
      # respond_to do |format|
      #   format.js

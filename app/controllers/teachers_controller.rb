@@ -8,6 +8,10 @@ class TeachersController < ApplicationController
 
   def show_attendance
     @school = SchoolAdmin.find(params[:school_id])
+    @teacher = User.find(params[:id])
+    @start_date = Date.today.beginning_of_month
+    @end_date = Date.today.end_of_month
+    @date = Date.today
   end
 
   def create

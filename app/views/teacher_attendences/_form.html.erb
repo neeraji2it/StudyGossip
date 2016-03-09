@@ -1,6 +1,7 @@
 
  <%= f.hidden_field :user_id, :value => @user.id %>
   <%= f.hidden_field :school_admin_id,:value => @school_name.id %>
+  <%#= f.hidden_field :present_date, :value => Date.today %>
 <div class="modal-body">
   <ul class="errors"></ul>
   <div class="control-group">
@@ -16,6 +17,4 @@
   </div>
   <%= f.submit class: "btn btn-primary" %>
 </div>
-
-  
-    <%#= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+ <%#= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>

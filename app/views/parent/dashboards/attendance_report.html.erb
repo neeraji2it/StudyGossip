@@ -1,0 +1,17 @@
+
+<table class="table table stripped">
+<tr>
+<th>UserId</th>
+<th>Date</th>
+<th>Attendance Status</th>
+</tr>
+<% @parent.users.each do |attend| %>
+<% attend.attendances.each do |a| %>
+<tr>
+<td><%= a.user_id %></td>
+<td><%= a. created_at.strftime("%d-%m-%Y") %></td>
+<td><%= a.attendance_status %></td>
+</tr>
+<% end %>
+<% end%>
+</table>

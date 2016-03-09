@@ -246,7 +246,6 @@ class ClassesController < ApplicationController
   def students_show
     @class_id = params[:class_id]
     @subject_id = params[:subject_id]
-    @user_id = params[:user_id]
     @school_admin_id = SchoolAdmin.find(params[:school_name])
     @students_mark = params[:students_mark]
     subject = Subject.find(params[:subject_id]) 

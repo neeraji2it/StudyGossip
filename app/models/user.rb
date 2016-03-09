@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   validates :username,:uniqueness => true,:format => {:with => /^[\w\-@]*$/ , :message => "Only use letters, numbers with no spaces"}, :on => :update
   belongs_to :school_admin
     has_many :teacher_attendances,  :dependent => :destroy
-
+has_many :attendances, :dependent => :destroy
   has_many :sent_follows, :class_name => "Follow", :foreign_key => :user_id, :dependent => :destroy
   has_many :received_follows, :class_name => 'Follow', :foreign_key => :receiver_id,:dependent => :destroy
   has_many :given_marks, :class_name => "Markreport",:foreign_key => :user_id, :dependent => :destroy

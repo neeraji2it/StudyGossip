@@ -29,7 +29,12 @@ WebApp::Application.routes.draw do
     end
   end
 namespace :parent do
-  resources :dashboards
+  resources :dashboards do
+member do
+get :marks
+get :attendance_report
+end
+  end
 end
   resources :students do
     collection do

@@ -1,15 +1,8 @@
-<div class="modal fade" id="new_person_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Send Invitation To Parent</h4>
-      </div>
+
       <div class="modal-body">
            <%= form_for(@parent, :url => school_parents_path(@school,@student),:html => {:id => "commentForm"}) do |f| %>
-                               <%= f.hidden_field :user_id, :value => params[:student_id] %>
-  <%= f.hidden_field :school_admin_id,:value => params[:school_id] %>
-  <%# = @school.inspect %>
+  <%= hidden_field_tag :user_id, @student.id %>
+  <%= f.hidden_field :school_admin_id,:value => @school.id %>
     <table>
       <tr>
         <td valign="top">First Name:</td>
@@ -34,11 +27,3 @@
     </table>
   <% end %>
       </div>
-
-     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

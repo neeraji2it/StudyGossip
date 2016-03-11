@@ -24,8 +24,8 @@ class ParentsController < ApplicationController
     @parent.password_confirmation = 'abcxyz'
     @parentuser = Parentuser.find_by_email(@parent.email)
     if !@parentuser.present?
-      if @parent.save  # !@parent.email.present? 
-        @parentuser = Parentuser.create(:parent_id => @parent.id, :user_id => params[:id], :email => @parent.email,:school_admin_id => @school.id)
+      if @parent.save  # !@parent.email.present?                                
+                @parentuser = Parentuser.create(:parent_id => @parent.id, :user_id => params[:user_id], :email => @parent.email,:school_admin_id => @school.id)
         @parent.send_reset_password_instructions
         flash[:notice] = "Sccessfully Send invitation to student"
     #  UserMailer.sent_parent_invitation(@school,@parent).deliver

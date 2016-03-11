@@ -36,12 +36,6 @@ class ParentsController < ApplicationController
     end
   end
   
-  
-  
-  
-  
-  
-  
   def edit
      @parent = Parent.find(params[:id])
     if @parent.reset_password_token != params[:reset_password_token]

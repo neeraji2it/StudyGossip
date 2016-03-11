@@ -5,7 +5,7 @@ class ParentsController < ApplicationController
   def new
     @school = SchoolAdmin.find(params[:school_id])
     @parent = @school.parents.new
-    puts @user.inspect
+    @student = User.find(params[:student_id])
   end
   
   def index
@@ -15,6 +15,10 @@ class ParentsController < ApplicationController
   
   def create
     @school = SchoolAdmin.find(params[:school_id])
+     puts "##########"
+    puts @school.inspect
+
+    puts "#######"
     @parent = @school.parents.new(params[:parent])
     @parent.password = 'abcxyz'
     @parent.password_confirmation = 'abcxyz'

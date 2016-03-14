@@ -1,6 +1,6 @@
 <h2><%= @teacher.first_name.capitalize %> Attendance </h2>
 <% @teacher_attendence = TeacherAttendance.where("school_admin_id = '#{current_school_admin.id}' ") %>
-<table class="table table-bordered">
+<table class="table table-stripped">
   <tr>
     <th>Day</th>
     <th> Attendance</th>
@@ -9,9 +9,15 @@
   <tr>
    <td><%= day.strftime("%d-%m-%Y") %></td>
     <% @date1 = TeacherAttendance.find_by_present_date(day) %>
-    <td><%= check_box_tag "teacher_dates[]", "", @date1.present? ? true : false, disabled: true %></td>
-
+    <td id="check_style"><%= check_box_tag "teacher_dates[]", "", @date1.present? ? true : false, disabled: true %></td>
   </tr>
 
   <% end %>  
 </table>
+
+<style>
+#check_style
+{
+  
+}
+</style>

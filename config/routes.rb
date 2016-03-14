@@ -33,11 +33,11 @@ namespace :parent do
     member do
       get :marks
       get :attendance_report
-    end
-    collection do
       get :attend_compare
       get :mark_compare
     end
+  #  collection do
+   # end
   end
 end
 resources :students do

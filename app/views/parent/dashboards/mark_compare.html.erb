@@ -1,7 +1,17 @@
  <%#= @parent.inspect %>
+ <table>
+<tr>
+<th>Student Name </th>
+<th>marks </th>
+</tr>
+<% @marks.each do |m| %>
 <% @users.each do |u| %>
 <%= u.id.inspect %>
+<tr>
+<td><%= u.first_name %></td>
+<td> <%= m.inspect %> </td>
+</tr>
 
 <%end%>
-
-
+<% end%>
+</table>

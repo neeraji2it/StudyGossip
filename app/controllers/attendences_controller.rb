@@ -14,7 +14,7 @@ class AttendencesController < ApplicationController
   
   def create
     @school_name = SchoolAdmin.find(params[:school_name])
-    @attendence = Attendance.new(params[:attendance])
+    @attendence = Attendance.new(params[:attendance].merge(:today_date => Date.today))
     @attendence.school_admin_id = @school_name.id
     @attendence.cls_id = params[:class_id]
     @attendence.user_id = params[:user_id]

@@ -1,16 +1,22 @@
 
       <div class="modal-body">
-           <%= form_for(@parent, :url => school_parents_path(@school,@student),:html => {:id => "commentForm"}) do |f| %>
-  <%= hidden_field_tag :user_id, @student.id %>
-  <%= f.hidden_field :school_admin_id,:value => @school.id %>
+           <%= form_for(@parent, :url => school_parents_path(@school,@student),:html => {:id => "commentForm"},:remote => true) do |f| %>
+
+  <%#= hidden_field_tag :user_id, @student.id %>
+  <%= hidden_field_tag :user_id, params[:student_id] %>
+
+   <%= f.hidden_field :school_admin_id,:value => @school.id %>
     <table>
       <tr>
         <td valign="top">First Name:</td>
         <td><%= f.text_field :first_name, :class => 'required', :id => "cfame"%></td>
+                <td><%= validation_error(@parent.errors["last_name"]) %> </td>
+
       </tr>
       <tr>
         <td valign="top">Last Name:</td>
         <td><%= f.text_field :last_name, :class => 'required', :id => "clame"%></td>
+        <td><%= validation_error(@parent.errors["last_name"]) %> </td>
       </tr>
       <tr>
         <td valign="top">Email:</td>

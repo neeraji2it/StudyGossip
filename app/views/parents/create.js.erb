@@ -1,4 +1,5 @@
+<% if @parent.errors.any? %>
 $("#parent-contact").html("<%= escape_javascript render :partial => 'parents/new' %>")
-
-
-
+<% else %>
+window.location.reload();
+<% end %>

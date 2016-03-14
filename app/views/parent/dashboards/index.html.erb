@@ -1,4 +1,3 @@
-
 <table class="table table-stripped">
 <tr>
 <th> Student Name </th>
@@ -6,9 +5,9 @@
 </tr>
 <% @parent.users.each do |i| %>
 <tr>
-<td><%= i.first_name %></td>
-<td><%= link_to "View Attendance", attendance_report_parent_dashboard_path(i) , :class => "btn btn info"%>
-<%= link_to "Mark reports", marks_parent_dashboard_path(i), :class => "btn btn info" %></td>
+<td><%= i.first_name.capitalize %></td>
+<td><%= link_to "View Attendance", attendance_report_parent_dashboard_path(i) , :class => "btn btn-info"%>
+<%= link_to "Mark Reports", marks_parent_dashboard_path(i), :class => "btn btn-info" %></td>
 </tr>
 <% end %>
 </table>

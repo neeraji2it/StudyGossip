@@ -1,2 +1,25 @@
- <%#= @parent.inspect %>
- <%= @users.inspect %>
+ <%#= @users.inspect %>
+
+
+  <table border="1" width="100%">
+    <tr>
+      <th>Student Name</th>
+         <% for day in (@start_date..(@end_date)).to_a %>
+        <td><%=day.strftime("%d-%m-%y") %></td>
+      <% end %>
+    </tr>
+    <% for school in @users %>
+      <tr> 
+        <% if school.role == 'student' %>
+          <td><%= school.first_name %></td>
+          <% for day in (@start_date..(@end_date)).to_a %>
+            <td><% @date1 = Attendance.find_by_user_id(day) %>
+            <%= @date1.inspect %>
+            <%= check_box_tag "student_dates[]","", @date1.present? ? true : false, disabled: true %></td>
+          <% end %>
+        <%end%>
+      </tr>
+    <% end %>
+  </table>
+
+

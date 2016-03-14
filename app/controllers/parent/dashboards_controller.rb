@@ -14,12 +14,18 @@ class Parent::DashboardsController < ApplicationController
 
   def mark_compare
      @parent = current_parent
-      @users = User.where(:role => "student")
+     @users = User.where(:role => "student")
   end
 
   def attend_compare
     @parent = current_parent
     @users = User.where(:role => "student")
+  #  @school = SchoolAdmin.find(params[:school_id])
+     @start_date = Date.today.beginning_of_month
+    @end_date = Date.today.end_of_month
+ 
+    @date = Date.today
+
   end
 
   def attendance_report

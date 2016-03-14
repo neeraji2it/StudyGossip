@@ -1,2 +1,7 @@
  <%#= @parent.inspect %>
-<%= @users.inspect %>
+<% @users.each do |u| %>
+<%= u.id.inspect %>
+
+<%end%>
+
+

@@ -15,7 +15,14 @@ class Parent::DashboardsController < ApplicationController
   def mark_compare
      @parent = current_parent
      @users = User.where(:role => "student")
+     # puts "**************"
+     # @users.inspect
+     # puts "******************"
+     # @user = User.find(params[:id])
+      #   @user = User.find(params[:id])
+
      @marks = @users.received_marks
+
   end
 
   def attend_compare

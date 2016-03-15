@@ -1,97 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Parent</title>
-    <link rel="shortcut icon" href="/assets/favicon.png" />
-      <% ['notice', 'error', 'warning'].each do |f|%>
-      <% if flash[f.to_sym]%>
-        <script type="text/javascript" >
-          jQuery(function () {
-            jQuery.notifyBar({
-              cls: "<%= f %>",
-              html: "<%=  flash[f.to_sym] %>",
-              delay: 3000,
-              animationSpeed: "normal"
-            });
-          });
-        </script>
-      <%end%>
-    <%end%>
-      <%= stylesheet_link_tag "/assets/bootstrap.min.css" %>
- </head>
-  <body>
-
-  
-<header class="navbar navbar-default" role="navigation">
+<head>
+  <title>Parent</title>
+  <link rel="shortcut icon" href="/assets/favicon.png" />
+  <% ['notice', 'error', 'warning'].each do |f|%>
+  <% if flash[f.to_sym]%>
+  <script type="text/javascript" >
+    jQuery(function () {
+      jQuery.notifyBar({
+        cls: "<%= f %>",
+        html: "<%=  flash[f.to_sym] %>",
+        delay: 3000,
+        animationSpeed: "normal"
+      });
+    });
+  </script>
+  <%end%>
+  <%end%>
+  <%= stylesheet_link_tag "/assets/bootstrap.min.css" %>
+</head>
+<body>
+  <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
         <div id="logo" class="navbar-brand"><%= link_to "Dashboard", parent_dashboards_path, :class => "menubanneritem button" %>
+        <% if parent_signed_in? -%>
+          <ul class="nav pull-right">
+            <li><%= link_to "Sign out",  parent_sign_out_path, :method => "get"%> </li>
+          </ul>
+          <% else %>
+          <ul class="nav navbar-nav navbar-right">    
+            <li><%= link_to 'Sign in', "new_user_session_path" %></li>
 
-          <% if parent_signed_in? -%>
-         <ul class="nav pull-right">
-              <li><%= link_to "Sign out",  parent_sign_out_path, :method => "get"%> </li>
-                      </ul>
-           <% else %>
-                <ul class="nav navbar-nav navbar-right">    
-              <li><%= link_to 'Sign in', "new_user_session_path" %></li>
-              
-           </ul>
+          </ul>
           <% end %>
-                 
- </div>
-   
- 
+
         </div>
+      </div>
     </div>
   </header>
-
-
- <div class="container-fluid">
-      <div class="row-fluid">
- 
-        <div class="span3">
-          <div id="sidebar-wrapper"  style="top:43px;position: absolute;">
-            <ul class="nav nav-pills nav-stacked">
-              <li class="<%=  params[:controller] == "Parent::Dashboards" && params[:action] == "index" ? "active" : ""%>"><%= link_to "Home", parent_dashboards_path %>
-              </li>
-              <li class="<%#=  params[:controller] == "Parent::Dashboards" || params[:action] == "marks" ? "active" : "" %>"><%#= link_to "attendance Report", attendance_report_parent_dashboard_path() %>
-              </li>
-              <li class="<%#=  params[:controller] == "Parent::Dashboards" || params[:action] == "attendance_report"  ? "active" : ""%>"><%#= link_to "Mark Report",  marks_parent_dashboard_path() %>
-              </li>
-              <li class="<%#=  params[:controller] == "Parent::Dashboards" || params[:action] == "attend_compare" ? "active" : ""%>"><%#= link_to "Attendance Comparison", attend_compare_parent_dashboards_path %>
-              </li>
-              <li class="<%#=  params[:controller] == "Parent::Dashboards" || params[:action] == "mark_compare"  ? "active" : ""%>"><%#= link_to "Mark comparison", mark_compare_parent_dashboards_path %>
-              </li>
-              
-            </ul>
-          </div>
-        </div><!--/span-->
-
-<div class="span9">
- <%= yield %>
-   </div>
-    </div>
-    </div>
-
-    <%= render :partial => 'layouts/google_analytics' if Rails.env == 'production' %>
-  </body>
+  <%= yield %>
+  <%= render :partial => 'layouts/google_analytics' if Rails.env == 'production' %>
+</body>
 </html>
 
-<style>
-  .row-fluid .span3 {
-    width: 17.077%;
-  } 
-
-  #sidebar-wrapper
-  {
-     background: #000 none repeat scroll 0 0;
-    height: 100%;
-    left: 250px;
-    margin-left: -250px;
-    overflow-y: auto;
-    position: fixed;
-    transition: all 0.4s ease 0s;
-    width: 250px;
-    z-index: 1000;
-  } 
-</style>

@@ -1,4 +1,6 @@
-
+<% @parent.users.each do |s| %>
+<h2><%= s.first_name.capitalize %> Mark Reports</h2>
+<% end %>
 <table class="table table stripped">
 <tr>
 <th>Student Id</th>

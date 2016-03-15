@@ -1,17 +1,28 @@
- <%#= @parent.inspect %>
- <table>
+
+<table class="table table stripped">
 <tr>
-<th>Student Name </th>
-<th>marks </th>
+<th>Student Id</th>
+<th>Class Name</th>
+<th>Subject Name</th>
+<th>Pass Marks</th>
+<th> Student Marks</th>
+<th> Total Marks</th>
+<th> Remarks</th>
 </tr>
 <% @marks.each do |m| %>
-<% @users.each do |u| %>
-<%= u.id.inspect %>
 <tr>
-<td><%= u.first_name %></td>
-<td> <%= m.inspect %> </td>
-</tr>
+<td>
+<% @users.each do |student| %>
+<%= student.id %>
+<%end %>
+<%#= m.user_id %></td>
+<td><%= m.cls.class_name %></td>
+<td><%= m.subject.subject_name %></td>
+<td><%= m.min_marks %></td>
+<td><%= m.max_marks %></td>
+<td><%= m.total_marks %></td>
+<td><%= m.comment %></td>
 
-<%end%>
+</tr>
 <% end%>
 </table>

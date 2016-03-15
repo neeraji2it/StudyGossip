@@ -1,7 +1,7 @@
  <%#= @users.inspect %>
 
 
-  <table border="1" width="100%">
+  <table class="table table stripped">
     <tr>
       <th>Student Name</th>
          <% for day in (@start_date..(@end_date)).to_a %>
@@ -22,6 +22,13 @@
     <% end %>
   </table>
 
+<style>
 
 
---------------------------------------
+.table th, .table td {
+    border-top: 3px solid #ddd;
+    line-height: 16px;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}

@@ -1,28 +1,5 @@
 
-<table class="table table stripped">
-<tr>
-<th>Student Id</th>
-<th>Class Name</th>
-<th>Subject Name</th>
-<th>Pass Marks</th>
-<th> Student Marks</th>
-<th> Total Marks</th>
-<th> Remarks</th>
-</tr>
-<% @marks.each do |m| %>
-<tr>
-<td>
-<% @users.each do |student| %>
-<%= student.id %>
-<%end %>
-<%#= m.user_id %></td>
-<td><%= m.cls.class_name %></td>
-<td><%= m.subject.subject_name %></td>
-<td><%= m.min_marks %></td>
-<td><%= m.max_marks %></td>
-<td><%= m.total_marks %></td>
-<td><%= m.comment %></td>
 
-</tr>
-<% end%>
-</table>
+<% @users.each do |student| %>
+<%= student.first_name %>
+<%end %>

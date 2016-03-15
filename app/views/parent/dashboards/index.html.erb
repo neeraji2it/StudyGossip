@@ -8,9 +8,9 @@
 <td><%= i.first_name.capitalize %></td>
 <td>
 <%= link_to "Child Attendance", attendance_report_parent_dashboard_path(i) , :class => "btn btn-info"%>
-<%= link_to "Child Mark Reports", marks_parent_dashboard_path(i), :class => "btn btn-info" %> 
+<%= link_to "Child Marks Reports", marks_parent_dashboard_path(i), :class => "btn btn-info" %> 
 <%= link_to "Attendance Comparison",attend_compare_parent_dashboard_path(i) , :class => "btn btn-info"%>
-<%#= link_to "Mark comparison", mark_compare_parent_dashboard_path(i) , :class => "btn btn-info"%></td>
+<%#= link_to "Marks comparison", mark_compare_parent_dashboard_path(i) , :class => "btn btn-info"%></td>
 </tr>
 <% end %>
 </table>

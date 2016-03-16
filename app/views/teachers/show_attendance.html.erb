@@ -22,7 +22,3 @@
 }
 </style>
 <%#= @teacher_attendence.count %>
-<% @teacher_attendence.each do |ta| %>
-<%= ta.created_at.strftime("%d-%m-%y") %>
-<%= ta.status %>
-  <% end %>

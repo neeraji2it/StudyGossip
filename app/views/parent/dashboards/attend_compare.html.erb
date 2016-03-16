@@ -10,11 +10,11 @@
     </tr>
     <% for school in @users %>
       <tr> 
-        <% if school.role == 'student' %>
+        <% if school.role == 'student'%>
           <td><%= school.first_name %></td>
           <% for day in (@start_date..(@end_date)).to_a %>
             <td>
-          <% @date1 = Attendance.find_by_today_date_and_receiver_id(day,school.id) %>
+          <% @date1 = Attendance.find_by_today_date_and_attendance_status_and_receiver_id(day,'present',school.id) %>
             <%= check_box_tag "student_dates[]","", @date1.present? ? true : false, disabled: true %></td>
           <% end %>
         <%end%>

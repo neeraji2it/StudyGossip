@@ -8,7 +8,7 @@
   <% for day in (@start_date..(@end_date)).to_a %>
   <tr>
    <td><%= day.strftime("%d-%m-%Y") %></td>
-    <% @date1 = TeacherAttendance.find_by_present_date(day) %>
+    <% @date1 = TeacherAttendance.find_by_present_date_and_status_and_user_id(day,'present',@teacher.id) %>
     <td id="check_style"><%= check_box_tag "teacher_dates[]", "", @date1.present? ? true : false, disabled: true %></td>
   </tr>
 
@@ -22,3 +22,7 @@
 }
 </style>
 <%#= @teacher_attendence.count %>
+<% @teacher_attendence.each do |ta| %>
+<%= ta.created_at.strftime("%d-%m-%y") %>
+<%= ta.status %>
+  <% end %>

@@ -1,29 +1,16 @@
- <%#= @parent.inspect %>
- <table>
+<table>
 <tr>
-<th>Student Name </th>
-<th><% @sub = Subject.all %>
-<% @sub.each do |subject| %>
-<%= subject.subject_name %> <%end %> </th>
-</tr>
-
-<% @users.each do |u| %>
-<%= u.id.inspect %>
-
+  <td>
+  Subject
+  </td>
+  <td>Marks</td>
+  </tr>
+<% for subject in @subjects %>
 <tr>
-<td><%= u.first_name %></td>
-<td> <%#= m.inspect %> </td>
-</tr>
-
-<%end%>
-
-</table>
- <% @marks = Markreport.all %>
-<% @marks.each do |m| %>
-<%= m.max_marks %>
-<% end %>
-
-
-<% Studentclass.find(1).cls.subjects.each do |s| %>
-<%= s.subject_name %>
-  <% end %>
+<td>
+    <%= subject.subject.subject_name %>
+  </td>
+  <td><%= subject.max_marks %></td>
+  </tr>
+    <% end %>
+  </table>

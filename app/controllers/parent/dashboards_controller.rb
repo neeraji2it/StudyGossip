@@ -10,13 +10,14 @@ class Parent::DashboardsController < ApplicationController
     @parent = current_parent
     @user = User.find(params[:id])
     @marks = @user.received_marks
+    @users = User.where("id != #{@user.id}")
+    @omarks = Markreport.where("receiver_id != #{@user.id}")
   end
 
   def mark_compare
      @parent = current_parent
-     @users = User.where(:role => "student")
-     @user = User.find(params[:id])
-     @marks = @user.received_marks
+     @users = @parent.parentusers.where("user_id is not null")
+     @subjects = Markreport.all
   end
 
   def attend_compare

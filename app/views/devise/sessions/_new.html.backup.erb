@@ -1,0 +1,103 @@
+<% if resource_name == :user %>
+<div class="main">
+  <div class="row">
+    <div class="span10">
+      <div class="sign_up_content">
+        <div style="display :none;color :red; font-size: 14px;position: relative;z-index: 1001;top: 10px;" id=<%= params[:role] == 'student' ? 'error' : 'error2'%>>Invalid Email/Password</div>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class =>"form-horizontal" },:remote => true) do |f| %>
+          <%= f.hidden_field :role,:value => params[:role] %>
+          <table cellpadding="20px">
+            <tr>
+              <td><%= f.email_field :email, :class => 'input-xlarge', :id => "inputEmail", :placeholder => "Email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.password_field :password, :class => 'input-xlarge', :id => "inputPassword", :placeholder => "Password" %></td>
+            </tr>
+            <tr>
+              <td><%#= link_to_function "Forgot Password?", "password_login('#{params[:role]}')" %>
+                <button type="submit" style="background: none; border: none;left: 85px;position: relative;top: 0px;"><%= params[:role] == 'student' ? (image_tag("/assets/login.png", :border=>'0')) : (image_tag("/assets/login copy.png", :border=>'0')) %></button></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div><!--/span5-->
+  </div>
+</div>
+<style>
+  .span10 {
+    margin-left: 310px;
+    width: 780px;
+  }
+
+  h2{
+    display: none;
+  }
+
+  #user_school_admin_id,#user_role{
+    width: 470px;
+  }
+</style>
+<% else %>
+
+<div class="container">
+
+<h2>Parent Login</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email,class: 'form-control', autofocus:true %>
+  </div>
+<br/>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class: 'form-control',autofocus:true %>
+  </div>
+
+<br/>
+  <div class="actions">
+    <%= f.submit "Log in" ,:class => "btn btn-success"%>
+  </div>
+<% end %>
+
+</div>
+
+
+<style>
+  input[type="email"]{
+width: 71%;
+padding: 2px;
+
+min-height: 30px;
+cursor: pointer;
+  }
+    input[type="password"]{
+width: 71%;
+padding: 2px;
+border: 1px solid transparent;
+min-height: 30px;
+cursor: pointer;
+box-shadow: 0px 0px 1px;
+border-radius: 1px;
+  }
+  #wrapper{
+  background-color:#ffffff;
+  }
+ input[type='email']:focus{
+  outline:none;
+   color:blue;
+}​
+ input[type='password']:focus{
+  outline:none;
+   color:blue !important;
+ 
+}​
+
+</style>
+
+
+
+
+
+
+<% end %>

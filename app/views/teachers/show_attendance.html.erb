@@ -1,6 +1,6 @@
 <h2><%= @teacher.first_name.capitalize %> Attendance </h2>
 <% @teacher_attendence = TeacherAttendance.where("school_admin_id = '#{current_school_admin.id}' ") %>
-<table class="table table-stripped">
+<table>
   <tr>
     <th>Day</th>
     <th>Attendance</th>
@@ -19,6 +19,21 @@
 #check_style
 {
   
+}
+table, th, td {
+     border: 1px solid black;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
 }
 </style>
 <%#= @teacher_attendence.count %>

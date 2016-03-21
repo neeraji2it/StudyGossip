@@ -1,7 +1,7 @@
 <% @parent.users.each do |s| %>
 <h2><%= s.first_name.capitalize %> Mark Reports</h2>
 <% end %>
-<table class="table table stripped">
+<table>
 <tr>
 <th>Student Id</th>
 <th>Class Name</th>
@@ -30,3 +30,21 @@
 </table>
 
 
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>

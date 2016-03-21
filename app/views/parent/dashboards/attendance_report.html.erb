@@ -1,5 +1,5 @@
 
-<table class="table table stripped">
+<table>
 <tr>
 <th>Student Id</th>
 <th>Date</th>
@@ -10,8 +10,27 @@
 <tr>
 <td><%= a.user_id %></td>
 <td><%= a. created_at.strftime("%d-%m-%Y") %></td>
-<td><%= a.attendance_status %></td>
+<td><%= a.attendance_status.capitalize %></td>
 </tr>
 <% end %>
 <% end%>
 </table>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>

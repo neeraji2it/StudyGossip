@@ -5,7 +5,7 @@
     <tr>
       <th>Student Name</th>
          <% for day in (@start_date..(@end_date)).to_a %>
-        <td><%= day.strftime("%d-%m-%y") %></td>
+        <th><%= day.strftime("%d-%m-%y") %></th>
       <% end %>
     </tr>
     <% for school in @users %>
@@ -23,12 +23,20 @@
   </table>
 
 <style>
-
-
-.table th, .table td {
-    border-top: 3px solid #ddd;
-    line-height: 16px;
-    padding: 5px;
-    text-align: left;
-    vertical-align: top;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>

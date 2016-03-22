@@ -18,10 +18,9 @@ class ParentsController < ApplicationController
   
   def create
     @school = SchoolAdmin.find(params[:school_id])
-     puts "##########"
-
-puts params[:student_id].inspect
-    puts "#######"
+    # puts "##########"
+    # puts params[:student_id].inspect
+    # puts "#######"
     @parent = @school.parents.new(params[:parent])
     @parent.password = 'abcxyz'
     @parent.password_confirmation = 'abcxyz'
@@ -38,7 +37,7 @@ puts params[:student_id].inspect
        # render :action => 'new'
       end
     else
-      @parentuser = Parentuser.create(:parent_id => @parentuser.parent_id, :user_id => params[:id], :email => @parentuser.email,:school_admin_id => @school.id)
+      @parentuser = Parentuser.create(:parent_id => @parentuser.parent_id, :user_id => params[:user_id], :email => @parentuser.email,:school_admin_id => @school.id)
      # redirect_to school_path(@school)
     end
   end

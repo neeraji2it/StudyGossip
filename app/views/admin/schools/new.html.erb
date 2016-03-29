@@ -1,5 +1,5 @@
 <div id="Tweet-summary" style="float: left;left: 400px;position: absolute;top: 52px;width: 35%;">
-  <div id="title">Send School Invitation</div><br />
+  <div id="title"><center> School Admin Invitation</center></div><br />
   <%= form_for @school, :url => admin_schools_path do |f| %>
     <table width="100%">
       <tr>
@@ -24,7 +24,7 @@
       </tr>
       <tr>
         <td></td>
-        <td><%= f.submit "Send Invitation", :class => 'btn'%></td>
+        <td><%= f.submit "Send Invitation", :class => 'btn btn-primary'%></td>
       </tr>
     </table>
   <% end %>

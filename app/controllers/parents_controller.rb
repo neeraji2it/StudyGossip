@@ -37,7 +37,7 @@ class ParentsController < ApplicationController
        # render :action => 'new'
       end
     else
-      @parentuser = Parentuser.create(:parent_id => @parentuser.parent_id, :user_id => params[:id], :email => @parentuser.email,:school_admin_id => @school.id)
+      @parentuser = Parentuser.create(:parent_id => @parentuser.parent_id, :user_id => params[:user_id], :email => @parentuser.email,:school_admin_id => @school.id)
      # redirect_to school_path(@school)
     end
   end

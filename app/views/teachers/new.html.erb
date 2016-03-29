@@ -1,5 +1,5 @@
 <div id="Tweet-summary" style="float: left;left: 400px;position: absolute;top: 52px;width: 35%;">
-  <div id="title">Send Invitation To Teacher</div><br />
+  <div id="title"><center>Send Invitation To Teacher</center></div><br />
   <%= form_for(@teacher, :url => school_teachers_path(@school),:html => {:id => "commentForm"}) do |f| %>
     <table>
       <tr>
@@ -17,11 +17,11 @@
       </tr>
       <tr>
         <td></td>
-        <td><%= f.submit "Send Invitation", :class => 'btn'%></td>
+        <td><%= f.submit "Send Invitation", :class => 'btn btn-primary'%></td>
       </tr>
     </table>
   <% end %>
-  <span style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(OR)</span>
+  <span style="text-align: center;"><center>(OR)</center></span>
   <div>
     <h3>Send Invitation To Teacher</h3>
     <%= render :partial => "upload_csvs/teacher_upload_csv" %>

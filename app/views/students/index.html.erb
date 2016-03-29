@@ -1,4 +1,4 @@
-<h4>Students</h4>
+<h4><center>Students</center></h4>
 <% if @students.present? %>
   <table class="table table-striped" style="background:white;">
     <tr>
@@ -13,8 +13,8 @@
     </tr>
     <% for school in @students %>
       <tr style="text-align: center;">
-        <td><%= school.first_name %></td>
-        <td><%= school.last_name %></td>
+        <td><%= school.first_name.capitalize %></td>
+        <td><%= school.last_name.capitalize %></td>
         <% if school.reset_password_token == nil %>
           <td>
             <%= link_to school.email, school_student_path(@school, school) %>
@@ -23,7 +23,7 @@
           <td><%= school.email %></td>
         <% end %>
         <% if school.username.present? %>
-          <td><%= school.username.split("@").last %></td>
+          <td><%= school.username.split("@").last.capitalize %></td>
         <% else %>
           <td></td>
         <% end %>
@@ -34,14 +34,14 @@
             Invitation Sent
           <% end %>
         </td>
-        <td><%= school.role %></td>
+        <td><%= school.role.capitalize %></td>
         <td><%= link_to school.studentclasses.first ? school.studentclasses.first.cls.class_name : "Nil", display_class_school_student_path(@school,school,:class_id =>school.studentclasses.first ? school.studentclasses.first.cls.id : '')%></td>
         <td>
               <% @parentuser = Parentuser.find_by_user_id(school.id) %>
         <% if  @parentuser.blank? %>
            <%#= link_to 'ContactParent', '#new_person_modal', 'data-toggle' => 'modal', :class => "btn btn-primary" %>
            
-<%= link_to "Contactparent","#new_person_modal", :onclick => "javascript:parent_submit('#{@school.id}','#{school.id}')", :class => "btn btn primary", 'data-toggle' => 'modal' %>
+<%= link_to "Contact Parent","#new_person_modal", :onclick => "javascript:parent_submit('#{@school.id}','#{school.id}')", :class => "btn btn-primary", 'data-toggle' => 'modal' %>
 
           
         <% else %>
@@ -58,7 +58,7 @@
 <% else %>
   <span style="color: red;font-size: 15px;left: 120px;position: relative;top: -31px;">No Users.</span>
 <% end %>
-<%= link_to "Back to Dashboard",school_path(@school),:class=>"btn btn-default" %>
+<%= link_to "Back to Dashboard",school_path(@school),:class=>"btn btn-primary" %>
 
 <style>
   .btn-danger:hover{

@@ -16,17 +16,17 @@
   <% @subjects.each do |sub| %>
     <tr>
       <td>
-        <%= @class.class_name %>
+        <%= @class.class_name.capitalize %>
       </td>
 
       <td>
-        <%= sub.subject_name %>
+        <%= sub.subject_name.capitalize %>
       </td>
       <td>
         <%= sub.assign ? sub.assign : "Not assigned" %>
       </td>
       <td>
-        <%= sub.teacherclasses.first ? sub.teacherclasses.first.user.first_name : "nil" %>
+        <%= sub.teacherclasses.first ? sub.teacherclasses.first.user.first_name.capitalize : "nil" %>
       </td>
     <% end %>
   </tr>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160229100402) do
+ActiveRecord::Schema.define(:version => 20160330065801) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -358,6 +358,15 @@ ActiveRecord::Schema.define(:version => 20160229100402) do
     t.string   "zipcode"
     t.integer  "no_of_users"
     t.integer  "parent_id"
+    t.string   "father_name"
+    t.date     "date_of_birth"
+    t.string   "guradian_name"
+    t.string   "guardian_contact_info"
+    t.string   "relation_with_guardain"
+    t.string   "emrgency_phone"
+    t.date     "year_of_admission"
+    t.text     "full_address"
+    t.string   "home_phone"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

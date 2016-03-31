@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email,:class_photo,:syllabus_link,:readings_attributes,:importent_links_attributes,:faqs_attributes,:school,:class_name,:class_description,:syllabus, :password, :password_confirmation,:terms_of_service, :remember_me,:username,:avatar,:school_admin_id,:role,:bio,:state,:major,:website,:first_name,:last_name,:reset_password_token,:phone, :zipcode, :father_name,:date_of_birth,:full_address,:guradian_name,:guardian_contact_info,:relation_with_guardain,:emergency_phone,:year_of_admission,:full_address,:home_phone
+  attr_accessible :email,:class_photo,:syllabus_link,:readings_attributes,:importent_links_attributes,:faqs_attributes,:school,:class_name,:class_description,:syllabus, :password, :password_confirmation,:terms_of_service, :remember_me,:username,:avatar,:school_admin_id,:role,:bio,:state,:major,:website,:first_name,:last_name,:reset_password_token,:phone, :zipcode, :father_name,:date_of_birth,:full_address,:guradian_name,:guardian_contact_info,:relation_with_guardain,:emergency_phone,:full_address,:home_phone,:year_of_admission
   has_many :tweets, :dependent => :destroy, :order => "created_at DESC"
   has_many :reports, :dependent => :destroy, :order => "created_at DESC"
   has_many :readings, :dependent => :destroy
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :readings,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :faqs,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :importent_links,  :allow_destroy  => true,:reject_if => :all_blank
-  validates :full_address,:year_of_admission,:relation_with_guardain,:guardian_contact_info, :presence => true
+#  validates :full_address,:relation_with_guardain,:guardian_contact_info, :presence => true 
   has_attached_file :avatar,
     :whiny => false,
     :storage => :s3,
@@ -74,7 +74,7 @@ has_many :attendances, :dependent => :destroy
  # validates :emrgency_phone,:home_phone, :presence => true, :numericality => true,format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
  #    message: "number must be in xxx-xxx-xxxx format" }
 
- validates :emergency_phone,:home_phone, format: { with: /\d{3}-\d{3}-\d{4}/, :message => "Please Enter Valid Phone Number" }   
+ #validates :emergency_phone,:home_phone, format: { with: /\d{3}-\d{3}-\d{4}/, :message => "Please Enter Valid Phone Number" }   
   validate :email_should_not_exist_in_school_admin,:email_should_not_exist_in_admin
   validates_acceptance_of :terms_of_service, :message => "In order to use the service, You must first agree to the terms and conditions", :on => :update
   before_update :lowercase_name

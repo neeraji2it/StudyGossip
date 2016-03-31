@@ -56,6 +56,10 @@
                   <li><%#= link_to image_tag("/assets/@_white.png", :height => "30px", :width => "20px", :class => 'nav_icon')+"Contact", root_path %></li>
                 <% end %>
               <% end %>
+
+              <% if current_school_admin %>
+              <%= link_to "Scholl Admin DashBoard", school_path(@school) %>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

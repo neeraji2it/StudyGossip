@@ -87,6 +87,7 @@ class StudentsController < ApplicationController
       format.html {render :partial => "show", :layout => false if request.xhr?}
       format.js {render :partial => "show", :layout => false if request.xhr?}
     end
+    render :layout => "application"
   end
 
   def posts

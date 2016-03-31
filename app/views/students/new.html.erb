@@ -1,160 +1,120 @@
-  <div id="title"><center>Send Invitation To Student</center></div><br />
-  <%= form_for(@student, :url => school_students_path(@school),:html => {:id => "commentForm"}) do |f| %>
+<div id="title"><center>Send Invitation To Student</center></div><br />
+  <div id="title">
+   <%= form_for(@student, :url => school_students_path(@school),:html => {:id => "commentForm"}) do |f| %>
+  <center>
 
-<center>
-<div class="row">
-
-  <div class="form-group">
-    <div class="col-md-6">
-      <%= f.label :first_name %>
-    <%= f.text_field :first_name, :class => 'required', :id => "cfame" %>
-    </div>
-
-  </div>
-  <div class="form-group">
-    <div class="col-sm-1">
-      <%= f.label :last_name %>
-    </div>
-    <%= f.text_field :last_name, :class => 'required', :id => "clame"%>
+  <div class="input-group">
+    <%= f.text_field :first_name, placeholder: "First Name", :class => 'form-control required', :id => "cfame" %>
+    <%= validation_error(@student.errors["first_name"])%>
   </div>
 
-  <div class="form-group">
-    <div class="col-sm-1">
-      <%= f.label :email %>
-    </div>
-    <%= f.text_field :email, :class => 'text required email', :id => "inputEmail"  %>
+  <div class="input-group">
+      <%= f.text_field :last_name, placeholder: "Last Name",:class => 'form-control required', :id => "clame"%>
+          <%= validation_error(@student.errors["last_name"])%>
+  </div>
+
+  <div class="input-group">
+    <%= f.text_field :email, placeholder: "Email",:class => 'form-control  required', :id => "inputEmail"  %>
     <%= validation_error(@student.errors["email"])%>
   </div>
 
 
-  <div class="form-group">
-    <div class="col-sm-1">
-      <%= f.label :father_name %>
-    </div>
-
-    <%= f.text_field :father_name, :class => 'text required father name', :id => "inputfathername" %>
+   <div class="input-group">
+    <%= f.text_field :father_name, placeholder: "Father Name", :class => 'form-control required', :id => "inputfathername" %>
     <%= validation_error(@student.errors["father_name"])%>
   </div>
 
 
-  <div class="form-group">
-    <div class="col-sm-1">
-     <%= f.label :DateofBirth %>
-   </div>
-    <%= f.date_select(:date_of_birth, {:order => [:day,:month,:year],:end_year => Time.now.strftime('%Y').to_i - 70, :start_year => Time.now.strftime('%Y').to_i,:use_month_numbers => true})%>
-
+  <div class="input-group">
+  
+ <h6>Date of Birth: </h6><%= f.date_select(:date_of_birth, {:order => [:day,:month,:year],:end_year => Time.now.strftime('%Y').to_i - 70, :start_year => Time.now.strftime('%Y').to_i,:use_month_numbers => true})%>
+<%= validation_error(@student.errors["date_of_birth"])%>
  </div>
 
 
- <div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :full_address %>
-  </div>
-  <%= f.text_field :full_address, :class => 'text required full address', :id => "Full_address" %>
+ <div class="input-group">
+   <%= f.text_field :full_address, placeholder: 'Full Address', :class => 'form-control required', :id => "Full_address" %>
   <%= validation_error(@student.errors["Full_address"])%>
 </div>
 
 
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :zipcode %>
-  </div>
-  <%= f.text_field :zipcode, :class => 'text required zipcode', :id => "input" %>
+<div class="input-group">
+
+  <%= f.text_field :zipcode,placeholder: 'zip code', :class => 'form-control required ', :id => "zipcode" %>
   <%= validation_error(@student.errors["zipcode"])%>
 </div>
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :Guardian %>
-  </div>
-  <%= f.text_field :guradian_name, :class => 'text required guradian_name', :id => "input" %>
+<div class="input-group">
+  <%= f.text_field :guradian_name, placeholder: 'Guadian Name',:class => 'form-control required ', :id => "guradian_name" %>
   <%= validation_error(@student.errors["guradian_name"])%>
 </div>
 
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :GuardianContact %>
-  </div>
-  <%= f.text_field :guardian_contact_info, :class => 'text required guardian contact info', :id => "input" %>
+<div class="input-group">
+  <%= f.text_field :guardian_contact_info,placeholder: 'GuardianContact', :class => 'form-control required guardian contact info', :id => "guardian_contact_info" %>
   <%= validation_error(@student.errors["guardian_contact_info"])%>
 </div>
 
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :GuardianRelation %>
-  </div>
-  <%= f.text_field :relation_with_guardain , :class => 'text required relation with guardian', :id => "input"%>
+<div class="input-group">
+  <%= f.text_field :relation_with_guardain , placeholder: 'Guardian Relation',:class => 'form-control required relation with guardian', :id => "relation_with_guardain"%>
   <%= validation_error(@student.errors["relation_with_guardain"])%>
 </div>
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :EmergencyPhone %>
-  </div>
-  <%= f.text_field :emrgency_phone, :class => 'text required Emergency phone', :id => "input phone"  %>
+<div class="input-group">
+  <%= f.text_field :emergency_phone,  placeholder: 'Emergency Phone', :class => 'form-control  required Emergency phone', :id => "emrgency_phone"  %>
   <%= validation_error(@student.errors["emrgency_phone"])%>
 </div>
 
 
-
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :year_of_admission %>
-  </div>
-   <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10) %>
+<div class="input-group">
+<h6>Year Of Admission:</h6>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' , :id => "year_of_admission" %>
   <%= validation_error(@student.errors["year_of_admission"])%>
 </div>
 
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :full_address %>
-  </div>
-  <%= f.text_field :full_address, :class => 'text required full address', :id => "inputfulladdress" %>
+<div class="input-group">
+  <%= f.text_field :full_address, placeholder: 'Full Address', :class => 'form-control text required full address', :id => "full_address" %>
   <%= validation_error(@student.errors["full_address"])%>
 </div>
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :home_phone %>
-  </div>
-  <%= f.text_field :home_phone, :class => 'text required home phone contact info', :id => "home_phone"  %>
+<div class="input-group">
+   <%= f.text_field :home_phone, placeholder: 'Home Phone', :class => 'form-control required home phone', :id => "home_phone"  %>
   <%= validation_error(@student.errors["home_phone"])%>
 </div>
 
 
-<div class="form-group">
-  <div class="col-sm-1">
-    <%= f.label :ClassName %>
-  </div>
-  <%= select_tag :class_id,  options_for_select([["Select", ""]] + Cls.where("school_admin_id = #{current_school_admin.id}").map{|ic| [ic.class_name,ic.id]}) %>
+<div class="input-group">
+    <%= select_tag :class_id,  options_for_select([["Select Class Name", ""]] + Cls.where("school_admin_id = #{current_school_admin.id}").map{|ic| [ic.class_name,ic.id]}) %>
+     <%= validation_error(@student.errors["class_id"])%>
 </div>
 
 
-<div class="actions">
+<div class="input-actions">
   <%= f.submit "Send Invitation", :class => 'btn btn-primary'%>
 </div> 
 <%end%>
 
-</div>
 </center>
 
 <span style="text-align: center;"><center>(OR)</center></span>
 <div>
-  <h3><center>Send Invitation To Student</center></h3><br />
-  <%= render :partial => "upload_csvs/upload_csv" %>
-</div>
 
+  <h3><center>Send Invitation To Student</center></h3><br />
+<center>
+   <%= render :partial => "upload_csvs/upload_csv" %>
+ 
+</center>
+</div>
+</div>
 <script>
   $("#commentForm").validate();
 </script>
@@ -162,8 +122,18 @@
 
 <style>
 #user_date_of_birth_3i,#user_date_of_birth_2i,#user_date_of_birth_1i   {
-  width: 60px;
+  width: 65px;
  }
+  .input-group {
+    /*background-color: #c0c0c0;*/
+    /*border: 1px solid #cccccc;*/
+    border-radius: 4px;
+    color: #555555;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 6px 12px;
+    text-align: center;
+  }
 </style>
-
 

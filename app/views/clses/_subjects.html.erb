@@ -4,6 +4,9 @@
       Class Name
     </th>
     <th>
+    Semester Name
+    </th>
+    <th>
       Subject Name
     </th>
     <th>
@@ -18,7 +21,9 @@
       <td>
         <%= @class.class_name.capitalize %>
       </td>
-
+<td>
+<%= @class.semester.name %>
+</td>
       <td>
         <%= sub.subject_name.capitalize %>
       </td>

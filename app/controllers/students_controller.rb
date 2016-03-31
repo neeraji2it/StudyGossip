@@ -10,6 +10,10 @@ class StudentsController < ApplicationController
     @student = @school.users.new(params[:user])
     @student.password = 'ashok123'
     @student.password_confirmation = 'ashok123'
+    puts "########"
+    puts @student.inspect
+        puts "########"
+
     if @student.save
       @student_class = Studentclass.create(:user_id=>@student.id,:cls_id=>params[:class_id],:school_admin_id=>@school.id)
       @student_class.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160330065801) do
+ActiveRecord::Schema.define(:version => 20160331094403) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20160330065801) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "status"
+    t.integer  "semester_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -233,6 +234,12 @@ ActiveRecord::Schema.define(:version => 20160330065801) do
   add_index "school_admins", ["reset_password_token"], :name => "index_school_admins_on_reset_password_token", :unique => true
   add_index "school_admins", ["slug"], :name => "index_school_admins_on_slug"
 
+  create_table "semesters", :force => true do |t|
+    t.integer  "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "student_informations", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -363,7 +370,7 @@ ActiveRecord::Schema.define(:version => 20160330065801) do
     t.string   "guradian_name"
     t.string   "guardian_contact_info"
     t.string   "relation_with_guardain"
-    t.string   "emrgency_phone"
+    t.string   "emergency_phone"
     t.date     "year_of_admission"
     t.text     "full_address"
     t.string   "home_phone"

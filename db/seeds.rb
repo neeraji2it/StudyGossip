@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Admin.create(:email => 'admin@gmail.com', :password => 'qawsed!@#', :password_confirmation => 'qawsed!@#', :username => 'admin')
-
 Semester.create(name: 1)
 Semester.create(name: 2)
 Semester.create(name: 3)
@@ -15,6 +14,5 @@ Semester.create(name: 5)
 Semester.create(name: 6)
 Semester.create(name: 7)
 Semester.create(name: 8)
-
 # semesters = [1,2,3,4,5,6,7,8]
 # semesters.each{|d| Semester.where(:name => d).first_or_create}

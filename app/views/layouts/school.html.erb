@@ -28,7 +28,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <div class="nav-collapse collapse">
+          <div class="nav-collapse ">
             <% if current_school_admin %>
               <ul class="nav" style="margin: -8px 10px 0 0;">
                 <li class="<%=  params[:controller] == "schools" && params[:action] == "show" ? "active" : ""%>"><%= link_to "Dashboard", school_path(@school), :class => "menubanneritem button" %></li>

@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :readings,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :faqs,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :importent_links,  :allow_destroy  => true,:reject_if => :all_blank
-#  validates :full_address,:relation_with_guardain,:guardian_contact_info, :presence => true 
+  validates :full_address,:relation_with_guardain,:guardian_contact_info, :presence => true 
   has_attached_file :avatar,
     :whiny => false,
     :storage => :s3,

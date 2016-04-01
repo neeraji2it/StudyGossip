@@ -13,6 +13,9 @@ class ClsesController < ApplicationController
     @class = Cls.new(params[:cls])
     @class.school_admin_id = @school.id
     if @class.save
+      puts "######"
+      puts @class.inspect
+            puts "######"
       flash[:notice] = "class is created"
       redirect_to school_path(@school)
     else

@@ -26,7 +26,7 @@
           <%= link_to "<button class='side_nav_button posts' type=button'>Posts<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, new_class_teachertweet_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id,:post => "post"),:remote => true, :onclick => 'graph_id(this)' %>
           <%= link_to "<button class='side_nav_button announcements' type=button'>Announcements<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, new_class_teachertweet_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id,:post => "announcement"), :remote => true, :onclick => 'graph_id(this)'  %>
           <%= link_to "<button class='side_nav_button assignments' type=button'>Assignments<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe,new_class_teachertweet_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id,:post => "assignment"),:remote => true, :onclick => 'graph_id(this)' %>
-          <%= link_to "<button class='side_nav_button posts for_notifications' type=button'>Roster<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, roster_class_path(:school_name => current_user.school_admin.school,:id =>@class.id) %>
+          <%#= link_to "<button class='side_nav_button posts for_notifications' type=button'>Roster<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, roster_class_path(:school_name => current_user.school_admin.school,:id =>@class.id) %>
           <%= link_to "<button class='side_nav_button posts for_notifications' type=button'>FAQ's<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, new_class_faq_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id), :remote => true, :onclick => 'graph_id(this)'  %>
           <%= link_to "<button class='side_nav_button posts for_notifications' type=button'>Readings<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, new_class_reading_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id), :remote => true, :onclick => 'graph_id(this)'  %>
           <%= link_to "<button class='side_nav_button password' type=button'>Important Links<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, new_class_importent_link_path(:school_name => current_user.school_admin.school,:class_id =>@class.id,:subject_id=>@subject.id,:user_id=>current_user.id), :remote => true, :onclick => 'graph_id(this)'  %>
@@ -53,7 +53,7 @@
         <p class="assistant_at_name">&nbsp@TATodd</p>
       </div>-->
 
-      <%= render :partial => 'profiles/links' %>
+      <%#= render :partial => 'profiles/links' %>
 
     </div>
 

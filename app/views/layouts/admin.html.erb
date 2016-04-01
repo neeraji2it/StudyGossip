@@ -28,7 +28,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <div class="nav-collapse collapse">
+          <div class="nav-collapse">
             <ul class="nav" style="margin: -8px 10px 0 0;">
               <li class="<%= (params[:controller] == 'admin/dashboards'&& params[:action] == 'index') ? "active" : ""  %>"><%= link_to "Dashboard", admin_dashboards_path, :class => "menubanneritem button" %></li>
               <li class="<%= (params[:controller] == 'admin/schools'&& params[:action] == 'new' || params[:action] == 'create') ? "active" : ""  %>"><%= link_to "Create School Admin", new_admin_school_path, :class => "menubanneritem button"  %></li>

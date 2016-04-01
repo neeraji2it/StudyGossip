@@ -1,31 +1,61 @@
-<div id="Tweet-summary" style="float: left;left: 400px;position: absolute;top: 52px;width: 35%;">
-  <div id="title"><center> School Admin Invitation</center></div><br />
+ <div class="container">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <div class="text-left">
   <%= form_for @school, :url => admin_schools_path do |f| %>
-    <table width="100%">
-      <tr>
-        <td>First Name:</td>
-        <td><%= f.text_field :first_name%></td>
-        <td><%= validation_error(@school.errors["first_name"])%></td>
-      </tr>
-      <tr>
-        <td>Last Name:</td>
-        <td><%= f.text_field :last_name%></td>
-        <td><%= validation_error(@school.errors["last_name"])%></td>
-      </tr>
-      <tr>
-        <td>School Name:</td>
-        <td><%= f.text_field :school_name%></td>
-        <td><%= validation_error(@school.errors["school_name"])%></td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><%= f.text_field :email %></td>
-        <td><%= validation_error(@school.errors["email"])%></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "Send Invitation", :class => 'btn btn-primary'%></td>
-      </tr>
-    </table>
-  <% end %>
+
+   <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> 
+
+  <h2>Send School Invitation</h2>
+    <%= f.label :first_name %><br>
+    <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-user"></span>
+      <%= f.text_field :first_name, placeholder: "First Name", class: "form-control input-lg", label: false, autofocus: true,:style=>"height: 28px;" %>
+      <%= validation_error(@school.errors["first_name"])%>
+    </div><br>
+    <%= f.label :last_name %><br>
+    <div class="input-group">
+     <span class="input-group-addon glyphicon glyphicon-user"></span>
+      <%= f.text_field :last_name, :class=>"form-control", :placeholder=>"Last Name",:style=>"height: 28px;" %>
+      <%= validation_error(@school.errors["last_name"])%>
+    </div><br>
+    <%= f.label :school_name %><br>
+    <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-home"></span>
+       <%= f.text_field :school_name, :class=>"form-control", :placeholder=>"School Name",:style=>"height: 28px;" %>
+       <%= validation_error(@school.errors["school_name"])%>
+    </div><br>
+    <%= f.label :email %><br>
+    <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+      <%= f.email_field :email, :class=>"form-control", :placeholder=>"Email",:style=>"height: 28px;" %>
+      <%= validation_error(@school.errors["email"])%>
+    </div><br>
+         
+    <button type="submit" class="btn btn-info">Send Invitation</button>
+  
 </div>
+<% end %>
+</div>
+</div>
+</div>
+
+<style>
+#error_explanation {
+  color: #f00;
+   border: 1px solid #CCC;
+   margin-bottom: 20px;
+   padding: 10px;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  padding: 1px;
+  background-color: #f00;
+  display: table;
+}
+</style>

@@ -42,8 +42,8 @@
         <% else %>
           <%= @user.avatar.present? ? image_tag(@user.avatar.url(:original) , :width => '50px;', :height => '50px;', :class => "profile_pic img-rounded fifty_by_fifty") : image_tag("/assets/profile_pic_instructor.png",:width => '50px;',:height => '50px;' , :class => "profile_pic img-rounded fifty_by_fifty")%>
         <% end %>
-        <div class="instructor_name"><%= link_to @user.fullname, profile_path(:school_name => current_user.school_admin.school,:id =>@user.id) %></div>
-        <p class="instructor_at_name">&nbsp<%= @user.username %></p>
+        <div >&nbsp<%= link_to @user.fullname, profile_path(:school_name => current_user.school_admin.school,:id =>@user.id), :class => "btn btn-info" %></div>
+        <p class="instructor_at_name">&nbsp<%#= @user.username %></p>
       </div>
 
       <!---<div class="box_l2_hp">

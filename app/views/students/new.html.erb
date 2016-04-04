@@ -3,7 +3,8 @@
       <div class="panel-heading">
         <div class="text-left">
          <%= form_for(@student, :url => school_students_path(@school),:html => {:id => "commentForm"}) do |f| %>
-         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+         <!-- <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> -->
          <h2>Send Invitation To Student</h2>
 
          <%= f.label :first_name %><br>
@@ -91,7 +92,7 @@
 
 
       <div class="input-group">
-        <h6>Year Of Admission:</h6>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' ,:required =>true, :id => "year_of_admission" %>
+        <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' ,:required =>true, :id => "year_of_admission" %>
         <%= validation_error(@student.errors["year_of_admission"])%>
       </div>
 

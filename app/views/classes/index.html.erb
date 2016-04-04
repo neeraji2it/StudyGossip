@@ -28,7 +28,7 @@
         <tr>
           <td><%= classsubjects.cls.class_name  %></td>
           <td><%= s.subject_name %></td>
-          <td><%= link_to "Show",student_subject_show_class_path(:school_name => current_user.school_admin.school,:id =>classsubjects.cls.id,:subject_id=>s.id) %> </td>
+          <td><%= link_to "Show",student_subject_show_class_path(:school_name => current_user.school_admin.school,:id =>classsubjects.cls.id,:subject_id=>s.id), :class => "btn btn-primary" %> </td>
         </tr>
       <% end %>
     <% end %>

@@ -34,7 +34,9 @@
             Invitation Sent
           <% end %>
         </td>
-        <td><%= school.role.capitalize %></td>
+        <td>
+        <%#= image_tag school.avatar %>
+        <%= school.role.capitalize %></td>
         <td><%= link_to school.studentclasses.first ? school.studentclasses.first.cls.class_name : "Nil", display_class_school_student_path(@school,school,:class_id =>school.studentclasses.first ? school.studentclasses.first.cls.id : '')%></td>
         <td>
               <% @parentuser = Parentuser.find_by_user_id(school.id) %>

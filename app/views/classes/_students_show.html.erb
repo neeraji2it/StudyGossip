@@ -7,7 +7,7 @@
   <% @subject_students.each do |s| %>
     <tr>
       <td>
-        <%= s.user.first_name %>
+        <%= s.user.first_name.capitalize %>
       </td>
       <% if @students_mark == 'Mark Reports' %>
         <td>

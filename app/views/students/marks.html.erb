@@ -1,0 +1,48 @@
+
+<h2><%= @user.first_name.capitalize %> Mark Reports</h2>
+<table>
+<tr>
+<th>Student Id</th>
+<th>Class Name</th>
+<th>Subject Name</th>
+<th>Pass Marks</th>
+<th> Student Marks</th>
+<th> Total Marks</th>
+<th> Remarks</th>
+</tr>
+<% @marks.each do |m| %>
+<tr>
+<td>
+<%= @user.id %></td>
+<td><%= m.cls.class_name %></td>
+<td><%= m.subject.subject_name %></td>
+<td><%= m.min_marks %></td>
+<td><%= m.max_marks %></td>
+<td><%= m.total_marks %></td>
+<td><%= m.comment.capitalize %></td>
+
+</tr>
+<% end%>
+</table>
+
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
+<%= link_to "Back To Dashboard", school_path(@school), :class => "btn btn-primary" %>

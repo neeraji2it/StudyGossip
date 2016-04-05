@@ -1,0 +1,39 @@
+<h2><%= @user.first_name.capitalize %> Attendance </h2>
+<% @attendence = Attendance.where("school_admin_id = '#{current_school_admin.id}' ") %>
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Attendance</th>
+  </tr>
+  <% for day in (@start_date..(@end_date)).to_a %>
+  <tr>
+   <td><%= day.strftime("%d-%m-%Y") %></td>
+    <% @date1 = Attendance.find_by_today_date_and_attendance_status_and_user_id(day,'present',@user.id) %>
+              <td id="check_style"><%= check_box_tag "student_dates[]", "", @date1.present? ? true : false, disabled: true %></td>
+  </tr>
+  <% end %>  
+</table>
+
+
+
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
+<%= link_to "Back To Dashboard", school_path(@school), :class => "btn btn-primary" %>

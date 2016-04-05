@@ -7,7 +7,7 @@
          <!-- <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> -->
          <h2>Send Invitation To Student</h2>
 
-         <%= f.label :first_name %><br>
+         <%= f.label :first_name,"First Name" %><br>
          <div class="input-group">
           <span class="input-group-addon glyphicon glyphicon-user"></span>
           <%= f.text_field :first_name, placeholder: "First Name", class: "form-control input-lg", label: false, autofocus: true , :required =>true, :style=>"height: 28px;" %>
@@ -15,14 +15,14 @@
 
         </div><br>
 
-        <%= f.label :last_name %><br>
+        <%= f.label :last_name, "Last Name" %><br>
         <div class="input-group">
          <span class="input-group-addon glyphicon glyphicon-user"></span>
          <%= f.text_field :last_name, :class=>"form-control", :placeholder=>"Last Name",:required => true,:style=>"height: 28px;" %>   
          <%= validation_error(@student.errors["last_name"])%>
        </div><br>
 
-       <%= f.label :email %><br>
+       <%= f.label :email, "Email" %><br>
        <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         <%= f.text_field :email, :class=>"form-control", :placeholder=>"Email",:required =>true,:style=>"height: 28px;" %>
@@ -32,21 +32,21 @@
 
 
 
-      <%= f.label :father_name %><br>
+      <%= f.label :father_name, "Father Name" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-user"></span>
         <%= f.text_field :father_name, :class=>"form-control", :placeholder=>"Father Name",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["father_name"])%>
       </div><br>
 
-      <%= f.label :date_of_birth %><br>
-      <div class="input-group">
-        <%= f.date_select(:date_of_birth, {:order => [:day,:month,:year],:end_year => Time.now.strftime('%Y').to_i - 70, :start_year => Time.now.strftime('%Y').to_i,:use_month_numbers => true})%>
-        <%= validation_error(@student.errors["date_of_birth"])%>
-      </div><br>
+<%= f.label :date_of_birth, "Date Of Birth" %><br>
+  <div class="input-group">
+  <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+<%= f.date_select(:date_of_birth, {:order => [:day,:month,:year],:end_year => Time.now.strftime('%Y').to_i - 70, :start_year => Time.now.strftime('%Y').to_i,:use_month_numbers => true})%>
+<%= validation_error(@student.errors["date_of_birth"])%>
+ </div><br>
 
-
-      <%= f.label :full_address %><br>
+      <%= f.label :full_address, "Full Address" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-list"></span>
         <%= f.text_area :full_address, :class=>"form-control", :placeholder=>"Full Address",:required =>true,:style=>"height: 60px;" %>
@@ -54,36 +54,43 @@
 
       </div><br>
 
-      <%= f.label :zip_code %><br>
+      <%= f.label :zip_code, "Pin Code" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-user"></span>
         <%= f.text_field :zipcode, :class=>"form-control", :placeholder=>"Zip Code",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["zipcode"])%>
       </div><br>
 
-      <%= f.label :guardian_name %><br>
+      <%= f.label :guardian_name, "Guardian Name" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-user"></span>
         <%= f.text_field :guradian_name, :class=>"form-control", :placeholder=>"Guardian Name",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["guradian_name"])%>
       </div><br>
 
-      <%= f.label :guardian_contact_info %><br>
+      <%= f.label :guardian_contact_info, "Guardian Contact Info" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-list"></span>
         <%= f.text_field :guardian_contact_info, :class=>"form-control", :placeholder=>"Guardian Contact Info",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["guardian_contact_info"])%>
       </div><br>
 
-      <%= f.label :guardian_relation %><br>
+      <%= f.label :guardian_relation, "Relation with Guardain" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-user"></span>
         <%= f.text_field :relation_with_guardain, :class=>"form-control", :placeholder=>"Guardian Relation",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["relation_with_guardain"])%>
       </div><br>
 
+         <%= f.label :home_phone, "Home Phone" %><br>
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-phone"></span>
+        <%= f.text_field :home_phone, :class=>"form-control", :placeholder=>"Home Phone",:required =>true,:style=>"height: 28px;" %>
+        <%= validation_error(@student.errors["home_phone"])%>
 
-      <%= f.label :emrgency_phone %><br>
+      </div><br>
+
+      <%= f.label :emrgency_phone, "Emergency Phone" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-phone"></span>
         <%= f.text_field :emergency_phone, :class=>"form-control", :placeholder=>"Emergency Phone",:required =>true,:style=>"height: 28px;" %>
@@ -95,14 +102,8 @@
         <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' ,:required =>true, :id => "year_of_admission" %>
         <%= validation_error(@student.errors["year_of_admission"])%>
       </div>
-
-      <%= f.label :home_phone %><br>
-      <div class="input-group">
-        <span class="input-group-addon glyphicon glyphicon-phone"></span>
-        <%= f.text_field :home_phone, :class=>"form-control", :placeholder=>"Home Phone",:required =>true,:style=>"height: 28px;" %>
-        <%= validation_error(@student.errors["home_phone"])%>
-
-      </div><br>
+<br>
+   
 
 
       <div class="input-group">
@@ -111,20 +112,22 @@
       </div><br>
 
 
+
       <div class="input-actions">
         <%= f.submit "Send Invitation", :class => 'btn btn-primary'%>
       </div> 
       <%end%>
 
-      <span style="text-align: center;"><center>(OR)</center></span>
+   <!--    <span style="text-align: center;"><center>(OR)</center></span>
       <div>
 
         <h3><center>Send Invitation To Student</center></h3><br />
         <center>
-         <%= render :partial => "upload_csvs/upload_csv" %>
+         <%#= render :partial => "upload_csvs/upload_csv" %>
 
        </center>
-     </div>
+     </div> -->
+
    </div>
    <script>
     $("#commentForm").validate();

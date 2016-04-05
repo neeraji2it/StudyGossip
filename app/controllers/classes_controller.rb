@@ -1,5 +1,7 @@
 class ClassesController < ApplicationController
   before_filter :is_login?
+  #  before_filter :is_login?,:except => [:index]
+
   layout :get_layout
 
   def index
@@ -9,6 +11,7 @@ class ClassesController < ApplicationController
     @subjects = @user.teacherclasses
     @student_subjects = @user.studentclasses
     @class = Cls.where(:school_admin_id => @school.id)
+  #  render :layout => "eduposts"
   end
 
   def switch_theme

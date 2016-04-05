@@ -91,6 +91,31 @@ class StudentsController < ApplicationController
      
   end
 
+  def student_profile
+   @school = SchoolAdmin.find(params[:school_id])
+   @user = User.find(params[:id])
+  end
+
+  def attendance
+   @school = SchoolAdmin.find(params[:school_id])
+   @user = User.find(params[:id])
+  # @student = User.find(params[:id])
+    @start_date = Date.today.beginning_of_month
+    @end_date = Date.today.end_of_month
+    @date = Date.today
+    # @marks = @user.received_marks
+    # @users = User.where("id != #{@user.id}")
+    # @omarks = Markreport.where("receiver_id != #{@user.id}")
+  end
+
+  def marks
+    @school = SchoolAdmin.find(params[:school_id])
+   @user = User.find(params[:id])
+   @marks = @user.received_marks
+    @users = User.where("id != #{@user.id}")
+    @omarks = Markreport.where("receiver_id != #{@user.id}")
+  end
+
   def posts
     @school = SchoolAdmin.find(params[:school_id])
     @user = User.find(params[:id])

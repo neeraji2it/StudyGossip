@@ -120,6 +120,9 @@ resources :teacher_attendences do
           get :followers
           get :following
           get :posts
+          get :student_profile
+          get :attendance
+          get :marks
           get :display_class
         end
       end
@@ -128,6 +131,7 @@ resources :teacher_attendences do
           get :assign_class
           get :show_attendance
           post :assign_teachercls
+          get :teacher_profile
         end
       end
       resources :upload_csvs do

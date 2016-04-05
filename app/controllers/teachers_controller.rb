@@ -57,6 +57,13 @@ class TeachersController < ApplicationController
     render :layout => "eduposts"
   end
 
+  def teacher_profile
+   @school = SchoolAdmin.find(params[:school_id])
+   @user = User.find(params[:id])
+   #@classes = Cls.where("school_admin_id = '#{current_school_admin.id}' ").all
+
+  end
+
   def update
     @teacher = User.find(params[:id])
     if @teacher.update_attributes(params[:user])

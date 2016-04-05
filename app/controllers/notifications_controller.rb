@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
-  before_filter :is_login?
+    before_filter :is_login?
+  #before_filter :is_login? , :except => [:index]
   layout :get_layout
 
   def index
@@ -8,6 +9,7 @@ class NotificationsController < ApplicationController
       format.html {render :partial => "index", :layout => false if request.xhr?}
       format.js {render :partial => "index", :layout => false if request.xhr?}
     end
+   # render :layout => "eduposts"
   end
 
   def announcements

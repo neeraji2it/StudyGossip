@@ -37,7 +37,7 @@ class SchoolsController < ApplicationController
       #render :update do |page|
         flash[:notice] = "Successfully deleted this school."
       #  page.reload
-redirect_to admin_dashboards_path
+      redirect_to admin_dashboards_path
     #  end
     end
   end

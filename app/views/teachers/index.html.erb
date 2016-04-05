@@ -12,7 +12,7 @@
     </tr>
     <% for school in @teachers %>
       <tr style="text-align: center;">
-        <td><%= school.first_name.capitalize %></td>
+        <td><%= link_to school.first_name.capitalize, teacher_profile_school_teacher_path(@school, school) %></td>
         <td><%= school.last_name.capitalize %></td>
         <% if school.reset_password_token == nil %>
           <td>

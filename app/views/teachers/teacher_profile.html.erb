@@ -1,0 +1,28 @@
+
+<div class="row">
+  <h2> Teacher Profile</h2>
+  <div class="row-fluid">
+   <div class="span4"> First Name:</div>
+   <div class="span4"><%= @user.first_name.capitalize %></div>
+ </div>
+
+
+
+ <div class="row-fluid">
+  <div class="span4"> Last Name:</div>
+  <div class="span4"><%= @user.last_name.capitalize %></div>
+</div>
+
+<div class="row-fluid">
+  <div class="span4">Teacher Email:</div>
+  <div class="span4"><%= @user.email %></div>
+</div>
+
+
+<div class="row-fluid">
+  <div class="span4">Teacher Image:</div>
+  <div class="span4"><%= image_tag @user.avatar %></div>
+</div>
+</div>
+<%= link_to "Back to Dashboard",school_path(@school),:class=>"btn btn-primary" %>
+

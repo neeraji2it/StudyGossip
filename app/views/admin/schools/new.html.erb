@@ -8,25 +8,25 @@
    <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> 
 
   <h2>Send School Invitation</h2>
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name, "First Name" %><br>
     <div class="input-group">
     <span class="input-group-addon glyphicon glyphicon-user"></span>
       <%= f.text_field :first_name, placeholder: "First Name", class: "form-control input-lg", label: false, autofocus: true,:style=>"height: 28px;" %>
       <%= validation_error(@school.errors["first_name"])%>
     </div><br>
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name, "Last Name" %><br>
     <div class="input-group">
      <span class="input-group-addon glyphicon glyphicon-user"></span>
       <%= f.text_field :last_name, :class=>"form-control", :placeholder=>"Last Name",:style=>"height: 28px;" %>
       <%= validation_error(@school.errors["last_name"])%>
     </div><br>
-    <%= f.label :school_name %><br>
+    <%= f.label :school_name, "School Name" %><br>
     <div class="input-group">
     <span class="input-group-addon glyphicon glyphicon-home"></span>
        <%= f.text_field :school_name, :class=>"form-control", :placeholder=>"School Name",:style=>"height: 28px;" %>
        <%= validation_error(@school.errors["school_name"])%>
     </div><br>
-    <%= f.label :email %><br>
+    <%= f.label :Email %><br>
     <div class="input-group">
     <span class="input-group-addon glyphicon glyphicon-envelope"></span>
       <%= f.email_field :email, :class=>"form-control", :placeholder=>"Email",:style=>"height: 28px;" %>

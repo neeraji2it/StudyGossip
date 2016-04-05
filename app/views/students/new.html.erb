@@ -99,7 +99,7 @@
 
 
       <div class="input-group">
-        <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' ,:required =>true, :id => "year_of_admission" %>
+        <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' , :required =>true, :id => "year_of_admission" %>
         <%= validation_error(@student.errors["year_of_admission"])%>
       </div>
 <br>

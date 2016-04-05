@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
       format.html {render :partial => "show", :layout => false if request.xhr?}
       format.js 
     end
-    render :layout => "eduposts"
+    #render :layout => "eduposts"
   end
 
   def favorites

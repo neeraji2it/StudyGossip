@@ -10,16 +10,16 @@
   <% @teacher_subjects.each do |ts| %>
     <tr>
       <td>
-        <%= ts.subject.subject_name %>
+        <%= ts.subject.subject_name.capitalize %>
       </td>
       <td>
-        <%= ts.user.first_name %>
+        <%= ts.user.first_name.capitalize %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to "Back to Students",school_students_path(current_school_admin),:class=>"btn btn-default" %>
+<%= link_to "Back to Students",school_students_path(current_school_admin),:class=>"btn btn-primary" %>
 
 <style>
   .table th, .table td {

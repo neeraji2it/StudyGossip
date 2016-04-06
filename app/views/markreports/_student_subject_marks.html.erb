@@ -1,5 +1,5 @@
 <h2><%= @subject_name.subject_name %> Mark Reports</h2>
-<% if @mark_reports.present? %>
+<% if @marks_reports.present? %>
 <table class="table table-striped" style="background:white;">
   <tr>
     <th>Pass Marks</th>
@@ -25,7 +25,7 @@
   <% end %>
 </table>
 <% else %>
-<span style="color: red;position: relative;top: 1px;">No Mark Reports</span>
+<span style="color: red;position: relative;top: 1px;"> Mark Reports are not Provided.</span>
 <% end %>
 
 <style>

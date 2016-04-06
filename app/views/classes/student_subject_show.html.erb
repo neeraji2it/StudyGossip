@@ -44,6 +44,8 @@
         <%= link_to "<button class='side_nav_button posts for_notifications' type=button'>Readings<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, student_subject_readings_class_readings_path(:school_name => current_user.school_admin.school,:class_id =>@subject.cls.id,:subject_id=>@subject.id),:remote=>true, :onclick => 'graph_id(this)' %>
         <%= link_to "<button class='side_nav_button password' type=button'>Important Links<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, student_subject_links_class_importent_links_path(:school_name => current_user.school_admin.school,:class_id =>@subject.cls.id,:subject_id=>@subject.id),:remote=>true, :onclick => 'graph_id(this)' %>
         <%= link_to "<button class='side_nav_button password' type=button'>Mark Reports<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, student_subject_marks_class_markreports_path(:school_name => current_user.school_admin.school,:class_id =>@subject.cls.id,:subject_id=>@subject.id),:remote=>true, :onclick => 'graph_id(this)' %>
+          <%= link_to "<button class='side_nav_button password' type=button'>Attendance Reports<img class='arrow' src='/assets/arrow.png' height='10px' width='10px'></button>".html_safe, student_attendance_class_attendences_path(:school_name => current_user.school_admin.school,:class_id =>@subject.cls.id,:subject_id=>@subject.id),:remote=>true, :onclick => 'graph_id(this)' %>
+        
       </div>
 
       <div class="box_l2_hp">

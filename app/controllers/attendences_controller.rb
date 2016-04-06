@@ -33,4 +33,10 @@ class AttendencesController < ApplicationController
     @user = User.find(params[:receiver_id])
     @attendence_reports = Attendance.where("receiver_id = #{params[:receiver_id]}")
   end
+
+  def student_attendance
+  # @user = User.find(params[:receiver_id])
+    @attendence_reports = Attendance.where("receiver_id = #{current_user.id}")
+   end
+
 end

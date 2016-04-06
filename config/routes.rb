@@ -62,7 +62,11 @@ resources :teacher_attendences do
           get :student_subject_marks
         end
       end 
-      resources :attendences
+      resources :attendences do
+        collection do
+          get :student_attendance
+        end
+      end
 
       resources :teachertweets do
         collection do

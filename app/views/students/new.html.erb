@@ -25,7 +25,7 @@
        <%= f.label :email, "Email" %><br>
        <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        <%= f.text_field :email, :class=>"form-control", :placeholder=>"Email",:required =>true,:style=>"height: 28px;" %>
+        <%= f.email_field :email, :class=>"form-control", :placeholder=>"Email",:required =>true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["email"])%>
 
       </div><br>
@@ -93,13 +93,13 @@
       <%= f.label :emrgency_phone, "Emergency Phone" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-phone"></span>
-        <%= f.text_field :emergency_phone, :class=>"form-control", :placeholder=>"Emergency Phone",:required =>true,:style=>"height: 28px;" %>
+        <%= f.text_field :emergency_phone, :class=>"form-control", :placeholder=>"Emergency Phone",:required => true,:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["emergency_phone"])%>
       </div><br>
 
 
       <div class="input-group">
-        <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required' , :required =>true, :id => "year_of_admission" %>
+        <p><b>Year Of Admission </b></p>  <%= f.select :year_of_admission, (Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control', :required => true, :id => "year_of_admission" %>
         <%= validation_error(@student.errors["year_of_admission"])%>
       </div>
 <br>

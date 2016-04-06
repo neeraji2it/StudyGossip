@@ -1,4 +1,11 @@
-<h4>Class Creation</h4>
+<div class="container">
+  <div class="col-md-10 col-md-offset-0">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+  <center>
+
+<link rel="stylesheet" href="/assets/home/bootstrap.min.css">
+<h2>Class Creation</h2></center>
 <%= form_for(@class, :url => school_clses_path(@school),:method => :post, :html => {:class => "form-inline"}) do |f| %>
 <%=render :partial => "form", :locals =>{:f => f }%>
 <% end %>

@@ -1,5 +1,12 @@
-<h4>EDIT</h4>
+<div class="container">
+  <div class="col-md-10 col-md-offset-0">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+  <center>
+
 <%= form_for(@class, :url => school_clse_path(@school,@class), :html => {:class => 'form-inline'}, :method => :put) do |f| %>
+<h2>Editing Class</h2>
+</center>
   <%=render :partial => "form", :locals =>{:f => f }%>
 <% end %>
 

@@ -3,12 +3,11 @@
     <div class="panel-heading">
 
 <h2>Send Invitation To Teacher</h2>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="/assets/home/bootstrap.min.css">
 
   <%= form_for(@teacher, :url => school_teachers_path(@school),:html => {:id => "commentForm"}) do |f| %>
   
-  <%= f.label :first_name %><br>
+  <%= f.label :first_name, "First Name" %><br>
             <div class="input-group">
       <span class="input-group-addon glyphicon glyphicon-user"></span>
       <div style="padding-left: 0px">
@@ -16,7 +15,7 @@
       </div>
       </div><br>
 
-  <%= f.label :last_name %><br>
+  <%= f.label :last_name, "Last Name" %><br>
             <div class="input-group">
       <span class="input-group-addon glyphicon glyphicon-user"></span>
       <div style="padding-left: 0px">
@@ -24,7 +23,7 @@
       </div>
       </div><br>
       
-        <%= f.label :email %><br>
+        <%= f.label :email, "Email" %><br>
             <div class="input-group">
       <span class="input-group-addon glyphicon glyphicon-envelope"></span>
       <div style="padding-left: 0px">

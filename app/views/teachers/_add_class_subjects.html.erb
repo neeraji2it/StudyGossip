@@ -1,0 +1,15 @@
+
+    <div class="column">
+    <p> <label> Class: </label>
+      <%= select_tag :class_id,  options_for_select([["Select", ""]] + @classes.map{|ic| [ic.class_name,ic.id]}),:data => {:child_id => "add_model" }, :onchange => "GetSubjects(this.value)",:style => "width:500px;"  %>
+    </p>
+  </div>
+
+  <div class="column" id="subjects">
+    <p> <label> Subject: </label>
+      <%=  select_tag :subjects,options_for_select(["Select", ""]),:style => "width:500px;"%>
+    </p>
+  </div>
+
+
+    

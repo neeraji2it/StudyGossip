@@ -20,7 +20,23 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :readings,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :faqs,  :allow_destroy  => true,:reject_if => :all_blank
   accepts_nested_attributes_for :importent_links,  :allow_destroy  => true,:reject_if => :all_blank
-  validates :full_address,:relation_with_guardain,:guardian_contact_info, :presence => true 
+ 
+  validates :full_address,:relation_with_guardain,:guardian_contact_info,:home_phone,:year_of_admission, :presence => {:if => :role? }
+
+ validates :emergency_phone,:home_phone, :presence => {:if => :phone_valid?,format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
+    message: " Phone numbers must be in xxx-xxx-xxxx format" }}
+ #number_regex = /\d[0-9]\)*\z/
+def phone_valid?
+ if self.role == "student"
+  # :emergency_phone => number_regex
+  # format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }
+ end
+end
+
+def role?
+    self.role == "student"
+end
+
   has_attached_file :avatar,
     :whiny => false,
     :storage => :s3,
@@ -74,7 +90,6 @@ has_many :attendances, :dependent => :destroy
  # validates :emrgency_phone,:home_phone, :presence => true, :numericality => true,format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
  #    message: "number must be in xxx-xxx-xxxx format" }
 
- #validates :emergency_phone,:home_phone, format: { with: /\d{3}-\d{3}-\d{4}/, :message => "Please Enter Valid Phone Number" }   
   validate :email_should_not_exist_in_school_admin,:email_should_not_exist_in_admin
   validates_acceptance_of :terms_of_service, :message => "In order to use the service, You must first agree to the terms and conditions", :on => :update
   before_update :lowercase_name

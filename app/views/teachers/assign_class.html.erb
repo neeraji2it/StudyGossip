@@ -1,24 +1,50 @@
+
+
+
+
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+    <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> 
+   <h2>Assign Class</h2>
+
+
+
+
 <%= form_for @assign_class, :url=>assign_teachercls_school_teacher_path(@school.id,@user.id) do |f| %>
 
-  <div class="column">
-    <p> <label> Class: </label>
-      <%= select_tag :class_id,  options_for_select([["Select", ""]] + Cls.where("status is null and school_admin_id=?",current_school_admin.id).map{|ic| [ic.class_name,ic.id]}), :onchange => "GetSubjects(this.value)" %>
+<div class="column">
+    <p> <label> Semester: </label>
+      <%= select_tag :semester_id,  options_for_select([["Select", ""]] + @semesters.map{|ic| [ic.name,ic.id]},:id => "semester_id"), :onchange => "load_class(this)",:style => "width:500px;" %>
+
+      
     </p>
   </div>
-
-
-  <div class="column" id="subjects">
-    <p> <label> Subject: </label>
-      <%=  select_tag :subjects,options_for_select(["Select", ""])%>
-    </p>
-  </div>
-  <%= f.submit "Save" %>
+  <div id="add_model"></div>
+  <%= f.submit "Save", :class => "btn btn-success" %>
 <% end %>
 
+</div>
+</div>
+</div>
 
 
-
-
-
-
+<script>
+  function load_class(obj) {
+     var semester_id = obj.value;
+     var school_id = <%= @school.id %>;
+     $.ajax({
+      url: "/schools/"+school_id+"/teachers/class_creation",
+      dataType: "Script",
+      type: "get",
+      data: {
+        semester_id: semester_id
+      },
+      success: function(data)
+      {
+      }
+    });
+  }
+</script>
 

@@ -137,6 +137,9 @@ resources :teacher_attendences do
           post :assign_teachercls
           get :teacher_profile
         end
+        collection do
+          get :class_creation
+        end
       end
       resources :upload_csvs do
         collection do

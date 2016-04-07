@@ -94,8 +94,17 @@ class TeachersController < ApplicationController
     @school = SchoolAdmin.find(params[:school_id])
     @user = User.find(params[:id])
     @assign_class = Teacherclass.new
+    @semesters = Semester.all
   end
   
+
+  def class_creation
+    puts "#######"
+    params.inspect
+    puts "#####"
+  @classes = Cls.where("semester_id = #{params[:semester_id]} AND status is null and school_admin_id=?",current_school_admin.id)
+  end
+
   def assign_teachercls
   
     puts params[:class_id]

@@ -25,11 +25,11 @@ class User < ActiveRecord::Base
  # validates :emergency_phone,:home_phone, :presence => {:if => :phone_valid?,format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
  #    message: " Phone numbers must be in xxx-xxx-xxxx format" }}
 
- validates_format_of :emergency_phone,:home_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :presence => {:if => :phone_valid?}
+ # validates_format_of :emergency_phone,:home_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :presence => {:if => :phone_valid?}
 
- def phone_valid?
-   self.role == "student"
- end
+ # def phone_valid?
+ #   self.role == "student"
+ # end
 
  def role?
   self.role == "student"

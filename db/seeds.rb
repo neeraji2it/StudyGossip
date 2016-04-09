@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# Admin.create(:email => 'admin@gmail.com', :password => 'qawsed!@#', :password_confirmation => 'qawsed!@#', :username => 'admin')
+ Admin.create(:email => 'admin@gmail.com', :password => 'qawsed!@#', :password_confirmation => 'qawsed!@#', :username => 'admin')
 Semester.create(name: 1)
 Semester.create(name: 2)
 Semester.create(name: 3)

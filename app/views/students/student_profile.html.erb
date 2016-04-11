@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="/assets/home/bootstrap.min.css"> 
 
-  <h2> Student Profile</h2>
+  <h2><center> Student Profile</center></h2>
   <div class="row-fluid">
   <%  if @user.first_name.present? %>
    <div class="span4"> First Name:</div>
@@ -50,14 +50,14 @@
 
 <div class="row-fluid">
   <%  if @user.guradian_name.present? %>
-  <div class="span4"> Student Guardian Name:</div>
+  <div class="span4"> Guardian Name:</div>
   <div class="span4"><%=  @user.guradian_name.capitalize %></div>
   <% end %>
 </div>
 
 <div class="row-fluid">
   <%  if @user.guardian_contact_info.present? %>
-  <div class="span4"> Student Guardian Contact Information:</div>
+  <div class="span4">Guardian Contact Information:</div>
   <div class="span4"><%=  @user.guardian_contact_info %></div>
   <% end %>
 </div>
@@ -71,7 +71,7 @@
 
 <div class="row-fluid">
   <%  if @user.emergency_phone.present? %>
-  <div class="span4">  Guardian Emergency Phone:</div>
+  <div class="span4"> Emergency Phone:</div>
   <div class="span4"><%=  @user.emergency_phone %></div>
   <% end %>
 </div>
@@ -79,7 +79,7 @@
 <div class="row-fluid">
   <%  if @user.year_of_admission.present? %>
   <div class="span4"> Student Admission Year:</div>
-  <div class="span4"><%=  @user.year_of_admission %></div>
+  <div class="span4"><%=  @user.year_of_admission.strftime("%d-%m-%Y") %></div>
   <% end %>
 </div>
 

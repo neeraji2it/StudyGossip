@@ -21,15 +21,14 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :importent_links,  :allow_destroy  => true,:reject_if => :all_blank
   
   validates :full_address,:relation_with_guardain,:guardian_contact_info,:home_phone,:year_of_admission, :presence => {:if => :role? }
+  validates :emergency_phone,:home_phone, :presence => {:if => :phone_valid?,with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/} #format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }}
+  # validates_format_of :emergency_phone,:home_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :presence => {:if => :phone_valid?}
 
- # validates :emergency_phone,:home_phone, :presence => {:if => :phone_valid?,format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
- #    message: " Phone numbers must be in xxx-xxx-xxxx format" }}
-
- # validates_format_of :emergency_phone,:home_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :presence => {:if => :phone_valid?}
-
- # def phone_valid?
- #   self.role == "student"
- # end
+  def phone_valid?
+   self.role == "student"
+    # message: " Phone numbers must be in xxx-xxx-xxxx format",
+    # format: { :with => /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/, message: " Phone numbers must be in xxx-xxx-xxxx format" }
+  end
 
  def role?
   self.role == "student"

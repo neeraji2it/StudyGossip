@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
       @teacher.update_attribute(:confirmation_token,nil)
       #@teacher.generate_password_reset_code
       @teacher.send_reset_password_instructions
-      flash[:notice] = "Sccessfully Send invitation to student"
+      flash[:notice] = "Sccessfully Send invitation to teacher"
       UserMailer.sent_teacher_invitation(@school,@teacher).deliver
       redirect_to school_path(@school)
     else

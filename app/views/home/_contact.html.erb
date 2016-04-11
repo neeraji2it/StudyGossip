@@ -23,14 +23,86 @@
     </p>
     <p><span>Message</span></p>
 
-   <% if params[:captcha_error] %>
+  <!--  <% if params[:captcha_error] %>
         <span style="color:red; font-size: 11px;"><%= params[:captcha_error] %></span>
       <% end %>
-        <span>3+1=?</span> <%= text_area_tag :captcha,nil,:style => "width:70px;" %>
-    
+        <span>3+1=?</span> <%#= text_area_tag :captcha,nil,:style => "width:70px;" %>
+     -->
+   <div class="quick-captcha-error-msg error"></div>
+<div class="captcha-wrapper">
+              <span id="quick-captcha-first">
+                <%= captcha_number_max %>
+              </span>
+              <span id="quick-captcha-middle">
+                <%= captcha_symbol %>
+              </span>
+              <span id="quick-captcha-last">
+                <%= captcha_number_min %>
+              </span>
+              <span> = </span>
+            </div>
+         
+            <%= text_field_tag :captcha, nil, placeholder: 'result', class: 'quick-captcha-input', :id => 'quick_captcha_result' %>
+            <br/>
+
+
    
-      <%= submit_tag "Send Message", :class => "btn-sendMessage" %>
+      <%= submit_tag "Send Message", :id => "quick-contact-button" ,:class => "btn-sendMessage" %>
     
 
   <% end %>
 </div>
+
+
+<script> 
+
+$(document).on("click", "#quick-contact-button", function(){
+  var first     = $("#quick-captcha-first").text().trim(),
+      symbol    = $("#quick-captcha-middle").text().trim(),
+      last      = $("#quick-captcha-last").text().trim(),
+      res_input = $("#quick_captcha_result").val(),
+      result;
+
+  if (symbol==="+") {
+    result = parseInt(first) + parseInt(last);
+  } else if (symbol==="-") {
+    result = parseInt(first) - parseInt(last);
+  };
+
+  console.log(result)
+  console.log(res_input)
+
+  if (result != res_input) {
+    $(".quick-captcha-error-msg").text("Are you a human? please enter captcha result");
+    return false;
+  } else {
+    $(".quick-captcha-error-msg").text("");
+  };
+});
+
+
+</script>
+
+<style>
+
+.captcha-wrapper{
+  background: url('/assets/captcha.jpg');
+  width: 200px;
+  height: 80px;
+  margin: 10px 0;
+  display: table-cell;
+  vertical-align:middle;
+  text-align: center;
+}
+.captcha-wrapper span{
+  color: #15A80B;
+  font-size: 3em;
+  font-weight: bolder;
+}
+.captcha-input{
+  width: 200px !important;
+}
+.error{
+  color: red;
+}
+</style>

@@ -80,10 +80,28 @@
         <%= validation_error(@student.errors["relation_with_guardain"])%>
       </div><br>
 
-         <%= f.label :home_phone, "Home Phone" %><br>
+   <!--       <%#= f.label :home_phone, "Home Phone" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-phone"></span>
-        <%= f.telephone_field :home_phone, :class=>"form-control required",:number => true, :placeholder=>"Home Phone",:id => "txtphone",:style=>"height: 28px;" %>
+        <%#= f.telephone_field :home_phone, :class=>"form-control required",:number => true, :placeholder=>"Home Phone",:id => "txtphone",:style=>"height: 28px;" %>
+        <%#= validation_error(@student.errors["home_phone"])%>
+
+      </div><br>
+
+      <%#= f.label :emrgency_phone, "Emergency Phone" %><br>
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-phone"></span>
+        <%#= f.telephone_field :emergency_phone,  :class=>"form-control required",:number => true, :placeholder=>"Emergency Phone",:id=>"txtphone",:style=>"height: 28px;" %>
+        <%#= validation_error(@student.errors["emergency_phone"])%>
+      </div><br> -->
+
+
+
+
+   <%= f.label :home_phone, "Home Phone" %><br>
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-phone"></span>
+        <%= f.telephone_field :home_phone, :class=>"form-control required", :placeholder=>"Home Phone",:id => "txtphone",:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["home_phone"])%>
 
       </div><br>
@@ -91,9 +109,17 @@
       <%= f.label :emrgency_phone, "Emergency Phone" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-phone"></span>
-        <%= f.telephone_field :emergency_phone,  :class=>"form-control required",:number => true, :placeholder=>"Emergency Phone",:id=>"txtphone",:style=>"height: 28px;" %>
+        <%= f.telephone_field :emergency_phone,  :class=>"form-control required", :placeholder=>"Emergency Phone",:id=>"txtphone",:style=>"height: 28px;" %>
         <%= validation_error(@student.errors["emergency_phone"])%>
       </div><br>
+
+
+
+
+
+
+
+
 
       <div class="input-group">
         <p><b>Year Of Admission </b></p>  <%#= f.select :year_of_admission,(Time.zone.now.year - 20)..(Time.zone.now.year + 10),:class => 'form-control required',  :id => "year_of_admission" %>

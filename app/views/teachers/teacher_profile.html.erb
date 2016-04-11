@@ -13,7 +13,7 @@
 
   <div class="row-fluid">
   <div class="controls" style="margin-left: 150px;">
-  <div class="span4"><%= image_tag @user.avatar %></div></div>
+  <div class="span4"><%= image_tag @user.avatar  if @user.avatar.present? %></div></div>
 </div><br>
 
   <div class="row-fluid">

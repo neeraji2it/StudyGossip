@@ -55,10 +55,12 @@
         <% else %>
         <li><%= link_to image_tag("/assets/home_icon_default.png", :class => "nav_icon", :height => "30px", :width => "20px")+'Home', profiles_path(:school_name => current_user.school_admin.school)  %></li>
         <% end %>
-        <% if params[:controller] == 'notifications' && (params[:action] == 'index' || params[:action] == 'posts') %>
+        <% if current_user.role == "teacher" %>
+        <% if params[:controller] == 'notifications' && (params[:action] == 'index' || params[:action] == 'posts')  %>
         <li class="active"><%= link_to image_tag("/assets@_blue.png", :class => "nav_icon", :height => "30px", :width => "20px")+'Inbox', notifications_path(:school_name => current_user.school_admin.school) %></li>
         <% else %>
         <li><%= link_to image_tag("/assets/@_grey.png", :class => "nav_icon", :height => "30px", :width => "20px")+'Inbox', notifications_path(:school_name => current_user.school_admin.school)  %></li>
+        <% end %>
         <% end %>
         <% if params[:controller] == "profiles" && (params[:action] == 'show' || params[:action] == 'edit' || params[:action] == 'edit_password' || params[:action] == 'update' || params[:action] == 'update_password') %>
         <li class="active"><%= link_to image_tag("/assets/my_tweets_icon_blue.png", :class => "nav_icon", :height => "30px", :width => "20px")+"Me", profile_path(:school_name => current_user.school_admin.school,:id =>current_user.id) %></li>

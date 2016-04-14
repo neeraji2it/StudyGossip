@@ -41,8 +41,9 @@
           <% if school.reset_password_token == nil %>
             <%= link_to "View Posts", posts_school_student_path(@school, school),:class=>"btn btn-primary"%>
           <% end %>
-          <%= link_to "Delete", teacher_path(school), :remote => true, :method => :delete,:class=>"btn btn-danger", :confirm => "Are You Sure.." %>
+        
              <%= link_to "Assign Class", assign_class_school_teacher_path(@school, school),:class=>"btn btn-primary"%> 
+          <%= link_to "<i class='glyphicon glyphicon-trash'></i>".html_safe, teacher_path(school), :remote => true, :method => :delete,:class=>"btn btn-danger", :confirm => "Are You Sure.." %>
         </td>
       </tr>
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160331094403) do
+ActiveRecord::Schema.define(:version => 20160414051351) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(:version => 20160331094403) do
     t.string   "father_name"
     t.date     "date_of_birth"
     t.string   "guradian_name"
-    t.string   "guardian_contact_info"
+    t.text     "guardian_contact_info"
     t.string   "relation_with_guardain"
     t.string   "emergency_phone"
     t.date     "year_of_admission"

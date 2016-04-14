@@ -1,3 +1,52 @@
-Total No.of Students : <%= link_to @students.count,school_students_path(current_school_admin) %>
-Total No.of Teachers : <%= link_to @teachers.count,school_teachers_path(current_school_admin) %>
-Total No.of Classes :<%= link_to @classes.count,school_clses_path(current_school_admin) %>
+
+<link rel="stylesheet" href="/assets/home/bootstrap.min.css">
+
+
+  <div class="content-wrapper">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-12">
+
+            <h2 class="page-title">Dashboard</h2>
+            <hr/>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="panel panel-default">
+                      <div class="panel-body bk-primary text-light">
+                        <div class="stat-panel text-center">
+                          <div class="stat-panel-number h1 "><%= @students.count %></div>
+                          <div class="stat-panel-title text-uppercase">No Of Students</div>
+                        </div>
+                      </div>
+                      <a href="/schools/<%= @school.id %>/students" class="btn btn-success">Full Detail's <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="panel panel-default">
+                      <div class="panel-body bk-success text-light">
+                        <div class="stat-panel text-center">
+                          <div class="stat-panel-number h1 "><%= @teachers.count %> </div>
+                          <div class="stat-panel-title text-uppercase"> No Of Teachers</div>
+                        </div>
+                      </div>
+                      <a href="/schools/<%= @school.id %>/teachers" class="btn btn-success">Full Detail's <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="panel panel-default">
+                      <div class="panel-body bk-info text-light">
+                        <div class="stat-panel text-center">
+                          <div class="stat-panel-number h1 "><%= @classes.count %></div>
+                          <div class="stat-panel-title text-uppercase">No Of Classes</div>
+                        </div>
+                      </div>
+                     <%= link_to "See All", school_clses_path(current_school_admin), class: "btn btn-success" %>
+                    </div>
+                  </div>
+
+            
+              </div>
+            </div>

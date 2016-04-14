@@ -66,10 +66,10 @@
         <%= validation_error(@student.errors["guradian_name"])%>
       </div><br>
 
-      <%= f.label :guardian_contact_info, "Guardian Contact Info" %><br>
+      <%= f.label :guardian_contact_info, "Guardian Contact Information" %><br>
       <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-list"></span>
-        <%= f.text_field :guardian_contact_info, :class=>"form-control", :placeholder=>"Guardian Contact Info",:required =>true,:style=>"height: 28px;" %>
+        <%= f.text_area :guardian_contact_info, :class=>"form-control", :placeholder=>"Guardian Contact Info",:required =>true,:style=>"height: 60px;" %>
         <%= validation_error(@student.errors["guardian_contact_info"])%>
       </div><br>
 

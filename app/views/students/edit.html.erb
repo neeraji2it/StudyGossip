@@ -25,7 +25,7 @@
           <div class="controls">
             <%=f.check_box :terms_of_service %>I agree terms and conditions
             <%= validation_error(@student.errors["terms_of_service"]) %>
-          </div>
+          </div><br/>
           <button type="submit" class="btn btn-warning span5">Create My Account</button>
         <% end %>
       </div>

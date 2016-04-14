@@ -88,7 +88,7 @@
             <% if current_user.role == 'teacher' %>
             <li><%#= link_to "Edit Class", edit_class_path(:school_name => current_user.school_admin.school,:id =>current_user.id) %></li>
             <% end %>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
+            <li><%= link_to "Signout", destroy_user_session_path, :method => 'delete' %></li>
           </ul>
         </div>
       </ul>

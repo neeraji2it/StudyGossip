@@ -17,25 +17,25 @@
   </script>
   <%end%>
   <%end%>
-  <%= stylesheet_link_tag "/assets/bootstrap.min.css" %>
+  <%#= stylesheet_link_tag "/assets/bootstrap.min.css" %>
 </head>
 <body>
   <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "Dashboard", parent_dashboards_path, :class => "menubanneritem button" %>
-        <% if parent_signed_in? -%>
-          <ul class="nav pull-right">
-            <li><%= link_to "Signout",  parent_sign_out_path, :method => "get"%> </li>
-          </ul>
-          <% else %>
-          <ul class="nav navbar-nav navbar-right">    
-            <li><%= link_to 'Sign in', "new_user_session_path" %></li>
-
-          </ul>
-          <% end %>
-
+        <div id="logo" class="navbar-brand">
+          <%= link_to "Dashboard", parent_dashboards_path, :class => "menubanneritem button" %>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+
+          <% if parent_signed_in? %>
+
+          <li><%= link_to "Signout",  parent_sign_out_path, :method => "get"%> </li>
+          <% else %>
+
+          <li><%= link_to 'Sign in', "new_user_session_path" %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </header>

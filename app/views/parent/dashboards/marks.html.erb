@@ -1,7 +1,10 @@
+
+ <link rel="stylesheet" href="/assets/home/bootstrap.min.css">
 <% @parent.users.each do |s| %>
-<h2><%= s.first_name.capitalize %> Mark Reports</h2>
+<div class="well well-lg"><center><h2><%= s.first_name.capitalize %> Mark's Report</h2></center></div>
 <% end %>
-<table>
+  <table >
+
 <tr>
 <th>Student Id</th>
 <th>Class Name</th>
@@ -11,11 +14,12 @@
 <th> Total Marks</th>
 <th> Remarks</th>
 </tr>
+
 <% @marks.each do |m| %>
 <tr>
-<td>
+
 <% @parent.users.each do |student| %>
-<%= student.id %>
+<td><%= student.id %></td>
 <%end %>
 <%#= m.user_id %></td>
 <td><%= m.cls.class_name %></td>

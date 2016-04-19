@@ -41,13 +41,14 @@
               </span>
               <span> = </span>
             </div>
-         
+         <br/>
             <%= text_field_tag :captcha, nil, placeholder: 'result', class: 'quick-captcha-input', :id => 'quick_captcha_result' %>
             <br/>
+<br/>
 
-
-   
+   <div class="col-md-6">
       <%= submit_tag "Send Message", :id => "quick-contact-button" ,:class => "btn-sendMessage" %>
+      </div>
     
 
   <% end %>

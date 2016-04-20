@@ -28,6 +28,8 @@
       <% end %>
         <span>3+1=?</span> <%#= text_area_tag :captcha,nil,:style => "width:70px;" %>
      -->
+
+    <%#= hidden_field_tag :authenticity_token, form_authenticity_token -%>
    <div class="quick-captcha-error-msg error"></div>
 <div class="captcha-wrapper">
               <span id="quick-captcha-first">

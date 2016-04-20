@@ -92,7 +92,7 @@ class HomeController < ApplicationController
     @name = params[:name]
     @email = params[:email]
     @message = params[:message]
-    if params[:captcha] == "4" and !params[:name].to_s.blank? and !params[:email].to_s.blank? and !params[:message].to_s.blank?
+    if  !params[:name].to_s.blank? and !params[:email].to_s.blank? and !params[:message].to_s.blank?
       UserMailer.contact_us(@name,@email,@message).deliver
     end
     render

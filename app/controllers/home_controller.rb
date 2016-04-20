@@ -94,8 +94,11 @@ class HomeController < ApplicationController
     @message = params[:message]
     if  !params[:name].to_s.blank? and !params[:email].to_s.blank? and !params[:message].to_s.blank?
       UserMailer.contact_us(@name,@email,@message).deliver
+     # redirect_to :back
+  end
+    respond_to do |format|
+      format.js
     end
-    render
   end
 
   def post_ind_payment

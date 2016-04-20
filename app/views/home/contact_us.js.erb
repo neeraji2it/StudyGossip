@@ -1,5 +1,5 @@
 <% if params[:captcha].present? || params[:name].present? || params[:email].present? || params[:message].present? %>
-alert("DSFDSFF");
+// alert("DSFDSFF");
 window.location.reload(true);
 <% else %>
 $("#contact_us").html('<%= escape_javascript render :partial => "contact" %>');
